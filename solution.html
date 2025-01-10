@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+    <title>Document</title>
+
+    <!-- Webmanifest + Favicon / App icons -->
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/png" href="assets/app-icons/icon-32x32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="assets/app-icons/icon-180x180.png">
+
+    <!-- Theme switcher (color modes) -->
+    <script src="assets/js/theme-switcher.js"></script>
+
+    <!-- Import Google font (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" id="google-font">
+
+    <!-- Vendor styles -->
+    <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" media="screen" href="assets/vendor/aos/dist/aos.css">
+    <link rel="stylesheet" media="screen" href="assets/vendor/lightgallery/css/lightgallery-bundle.min.css">
+
+    <!-- Font icons -->
+    <link rel="stylesheet" href="assets/icons/around-icons.min.css">
+
+    <!-- Theme styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+</head>
+
+<!-- Scroll down animated button -->
+<style>
+    .scroll-down-btn {
+        display: inline-block;
+        text-decoration: none;
+    }
+
+    .scroll-down-btn p {
+        margin-top: 1.25rem;
+        color: white;
+        font-size: .875rem;
+        font-weight: 500;
+        letter-spacing: .375rem;
+        text-indent: .375rem;
+        animation: colorText 5s ease-out infinite, nudgeText 5s ease-out infinite;
+    }
+
+    .mouse {
+        background: #2c333e linear-gradient(transparent 0%, transparent 50%, white 50%, white 100%);
+        position: relative;
+        width: 38px;
+        height: 65px;
+        margin: 0 auto;
+        border-radius: 6rem;
+        background-size: 100% 200%;
+        animation: colorSlide 5s linear infinite, nudgeMouse 5s ease-out infinite;
+    }
+
+    .mouse:before,
+    .mouse:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+    }
+
+    .mouse:before {
+        width: 34px;
+        height: 61px;
+        background-color: #121519;
+        border-radius: 6rem;
+    }
+
+    .mouse:after {
+        background-color: white;
+        width: .375rem;
+        height: .375rem;
+        border-radius: 100%;
+        animation: trackBallSlide 5s linear infinite;
+    }
+
+    @keyframes colorSlide {
+        0% {
+            background-position: 0% 100%;
+        }
+
+        20% {
+            background-position: 0% 0%;
+        }
+
+        21% {
+            background-color: #2c333e;
+        }
+
+        29.99% {
+            background-color: white;
+            background-position: 0% 0%;
+        }
+
+        30% {
+            background-color: #2c333e;
+            background-position: 0% 100%;
+        }
+
+        50% {
+            background-position: 0% 0%;
+        }
+
+        51% {
+            background-color: #2c333e;
+        }
+
+        59% {
+            background-color: white;
+            background-position: 0% 0%;
+        }
+
+        60% {
+            background-color: #2c333e;
+            background-position: 0% 100%;
+        }
+
+        80% {
+            background-position: 0% 0%;
+        }
+
+        81% {
+            background-color: #2c333e;
+        }
+
+        90%,
+        100% {
+            background-color: white;
+        }
+    }
+
+    @keyframes trackBallSlide {
+        0% {
+            opacity: 1;
+            transform: scale(1) translateY(-20px);
+        }
+
+        6% {
+            opacity: 1;
+            transform: scale(0.9) translateY(5px);
+        }
+
+        14% {
+            opacity: 0;
+            transform: scale(0.4) translateY(40px);
+        }
+
+        15%,
+        19% {
+            opacity: 0;
+            transform: scale(0.4) translateY(-20px);
+        }
+
+        28%,
+        29.99% {
+            opacity: 1;
+            transform: scale(1) translateY(-20px);
+        }
+
+        30% {
+            opacity: 1;
+            transform: scale(1) translateY(-20px);
+        }
+
+        36% {
+            opacity: 1;
+            transform: scale(0.9) translateY(5px);
+        }
+
+        44% {
+            opacity: 0;
+            transform: scale(0.4) translateY(40px);
+        }
+
+        45%,
+        49% {
+            opacity: 0;
+            transform: scale(0.4) translateY(-20px);
+        }
+
+        58%,
+        59.99% {
+            opacity: 1;
+            transform: scale(1) translateY(-20px);
+        }
+
+        60% {
+            opacity: 1;
+            transform: scale(1) translateY(-20px);
+        }
+
+        66% {
+            opacity: 1;
+            transform: scale(0.9) translateY(5px);
+        }
+
+        74% {
+            opacity: 0;
+            transform: scale(0.4) translateY(40px);
+        }
+
+        75%,
+        79% {
+            opacity: 0;
+            transform: scale(0.4) translateY(-20px);
+        }
+
+        88%,
+        100% {
+            opacity: 1;
+            transform: scale(1) translateY(-20px);
+        }
+    }
+
+    @keyframes nudgeMouse {
+
+        0%,
+        30%,
+        60%,
+        90% {
+            transform: translateY(0);
+        }
+
+        20%,
+        50%,
+        80% {
+            transform: translateY(8px);
+        }
+    }
+
+    @keyframes nudgeText {
+
+        0%,
+        30%,
+        60%,
+        90% {
+            transform: translateY(0);
+        }
+
+        20%,
+        50%,
+        80% {
+            transform: translateY(2px);
+        }
+    }
+
+    @keyframes colorText {
+
+        21%,
+        51%,
+        81% {
+            color: #2c333e;
+        }
+
+        30%,
+        60%,
+        90% {
+            color: white;
+        }
+    }
+</style>
+
+<!-- Page loading styles -->
+<style>
+    .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+    }
+
+    [data-bs-theme="dark"] .page-loading {
+        background-color: #121519;
+    }
+
+    .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+    }
+
+    .page-loading.active>.page-loading-inner {
+        opacity: 1;
+    }
+
+    .page-loading-inner>span {
+        display: block;
+        font-family: "Inter", sans-serif;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #6f788b;
+    }
+
+    [data-bs-theme="dark"] .page-loading-inner>span {
+        color: #fff;
+        opacity: .6;
+    }
+
+    .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        background-color: #d7dde2;
+        border-radius: 50%;
+        opacity: 0;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+    }
+
+    [data-bs-theme="dark"] .page-spinner {
+        background-color: rgba(255, 255, 255, .25);
+    }
+
+    @-webkit-keyframes spinner {
+        0% {
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        }
+
+        50% {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+        }
+    }
+
+    @keyframes spinner {
+        0% {
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        }
+
+        50% {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+        }
+    }
+</style>
+
+<!-- Page loading scripts -->
+<script>
+    (function () {
+        window.onload = function () {
+            const preloader = document.querySelector('.page-loading')
+            preloader.classList.remove('active')
+            setTimeout(function () {
+                preloader.remove()
+            }, 1500)
+        }
+    })()
+</script>
+
+<body>
+    <!-- Page wrapper -->
+    <main class="page-wrapper">
+
+        <!-- Hero section -->
+        <section class="position-relative bg-dark pt-lg-4 pt-xl-5">
+            <div class="jarallax position-absolute top-0 start-0 w-100 h-100" data-jarallax data-speed="0.4">
+                <div class="jarallax-img" style="background-image: url(assets/img/landing/saas-4/hero-bg-pattern.png);">
+                </div>
+            </div>
+            <div class="container position-relative z-2 pt-2 pt-sm-4 pt-md-5">
+                <div class="row justify-content-center pt-5">
+                    <div class="col-lg-9 col-xl-8 text-center pt-5 mt-1">
+                        <h1 class="display-4 text-white pt-3 mt-3 mb-4">QR code solution for every purpose
+                        </h1>
+                        <p class="text-white opacity-70 fs-xl">From adding a downloadable PDF file to playable videos
+                            and audio, use any of our QR Code solutions to enrich your print
+                            materials.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="d-none d-lg-block" style="height: 480px;"></div>
+            <div class="d-lg-none" style="height: 400px;"></div>
+            <div class="d-flex position-absolute bottom-0 start-0 w-100 overflow-hidden mb-n1"
+                style="color: var(--ar-body-bg);">
+                <div class="position-relative start-50 translate-middle-x flex-shrink-0" style="width: 3774px;">
+                    <svg width="3774" height="201" viewBox="0 0 3774 201" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M0 200.003C0 200.003 1137.52 0.188224 1873.5 0.000134392C2614.84 -0.189325 3774 200.003 3774 200.003H0Z"
+                            fill="currentColor" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories (Slider) -->
+        <section class="container position-relative z-3">
+            <div class="d-none d-lg-block" style="margin-top: -428px;"></div>
+            <div class=" d-lg-none" style="margin-top: -370px;"></div>
+            <div class="swiper" data-swiper-options='{
+                  "slidesPerView": 1,
+                  "spaceBetween": 24,
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "clickable": true
+                  },
+                  "breakpoints": {
+                    "560": {
+                      "slidesPerView": 2
+                    },
+                    "960": {
+                      "slidesPerView": 3
+                    }
+                  }
+                }'>
+                <div class="swiper-wrapper">
+
+                    <!-- Item -->
+                    <div class="swiper-slide">
+                        <a href="#" class="card card-hover zoom-effect border-0 rounded-5 overflow-hidden">
+                            <span class="position-absolute top-0 start-0 w-100 h-100 z-1"
+                                style="background: linear-gradient(180deg, rgba(18, 21, 25, 0.00) 35.56%, #121519 95.3%);"></span>
+                            <div class="position-absolute bottom-0 w-100 z-2 p-4">
+                                <div class="px-md-3">
+                                    <h3 class="h4 text-white mb-0">E-commerce</h3>
+                                    <div class="d-flex align-items-center justify-content-between opacity-0">
+                                        <span class="text-white fs-xs text-truncate opacity-70 pe-3">Order processing,
+                                            price
+                                            suggestions, user research</span>
+                                        <i class="ai-circle-arrow-right fs-3 text-primary"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="zoom-effect-wrapper">
+                                <div class="zoom-effect-img">
+                                    <img src="assets/img/landing/saas-4/categories/ecommerce.jpg" alt="Ecommerce">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="swiper-slide">
+                        <a href="#" class="card card-hover zoom-effect border-0 rounded-5 overflow-hidden">
+                            <span class="position-absolute top-0 start-0 w-100 h-100 z-1"
+                                style="background: linear-gradient(180deg, rgba(18, 21, 25, 0.00) 35.56%, #121519 95.3%);"></span>
+                            <div class="position-absolute bottom-0 w-100 z-2 p-4">
+                                <div class="px-md-3">
+                                    <h3 class="h4 text-white mb-0">Transportation</h3>
+                                    <div class="d-flex align-items-center justify-content-between opacity-0">
+                                        <span class="text-white fs-xs text-truncate opacity-70 pe-3">Itinerary planning,
+                                            freight
+                                            pricing culculations, etc.</span>
+                                        <i class="ai-circle-arrow-right fs-3 text-primary"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="zoom-effect-wrapper">
+                                <div class="zoom-effect-img">
+                                    <img src="assets/img/landing/saas-4/categories/transportation.jpg"
+                                        alt="Transportation">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="swiper-slide">
+                        <a href="#" class="card card-hover zoom-effect border-0 rounded-5 overflow-hidden">
+                            <span class="position-absolute top-0 start-0 w-100 h-100 z-1"
+                                style="background: linear-gradient(180deg, rgba(18, 21, 25, 0.00) 35.56%, #121519 95.3%);"></span>
+                            <div class="position-absolute bottom-0 w-100 z-2 p-4">
+                                <div class="px-md-3">
+                                    <h3 class="h4 text-white mb-0">Marketing</h3>
+                                    <div class="d-flex align-items-center justify-content-between opacity-0">
+                                        <span class="text-white fs-xs text-truncate opacity-70 pe-3">Market research,
+                                            data
+                                            visualization, user testing</span>
+                                        <i class="ai-circle-arrow-right fs-3 text-primary"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="zoom-effect-wrapper">
+                                <div class="zoom-effect-img">
+                                    <img src="assets/img/landing/saas-4/categories/marketing.jpg" alt="Marketing">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="swiper-slide">
+                        <a href="#" class="card card-hover zoom-effect border-0 rounded-5 overflow-hidden">
+                            <span class="position-absolute top-0 start-0 w-100 h-100 z-1"
+                                style="background: linear-gradient(180deg, rgba(18, 21, 25, 0.00) 35.56%, #121519 95.3%);"></span>
+                            <div class="position-absolute bottom-0 w-100 z-2 p-4">
+                                <div class="px-md-3">
+                                    <h3 class="h4 text-white mb-0">Robotics</h3>
+                                    <div class="d-flex align-items-center justify-content-between opacity-0">
+                                        <span class="text-white fs-xs text-truncate opacity-70 pe-3">Enhancing robot
+                                            learning,
+                                            improve robotic precision</span>
+                                        <i class="ai-circle-arrow-right fs-3 text-primary"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="zoom-effect-wrapper">
+                                <div class="zoom-effect-img">
+                                    <img src="assets/img/landing/saas-4/categories/robotics.jpg" alt="Robotics">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="swiper-slide">
+                        <a href="#" class="card card-hover zoom-effect border-0 rounded-5 overflow-hidden">
+                            <span class="position-absolute top-0 start-0 w-100 h-100 z-1"
+                                style="background: linear-gradient(180deg, rgba(18, 21, 25, 0.00) 35.56%, #121519 95.3%);"></span>
+                            <div class="position-absolute bottom-0 w-100 z-2 p-4">
+                                <div class="px-md-3">
+                                    <h3 class="h4 text-white mb-0">Programming</h3>
+                                    <div class="d-flex align-items-center justify-content-between opacity-0">
+                                        <span class="text-white fs-xs text-truncate opacity-70 pe-3">Code generation,
+                                            code
+                                            debugging and optimization</span>
+                                        <i class="ai-circle-arrow-right fs-3 text-primary"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="zoom-effect-wrapper">
+                                <div class="zoom-effect-img">
+                                    <img src="assets/img/landing/saas-4/categories/programming.jpg" alt="Programming">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Pagination (bullets) -->
+                <div class="swiper-pagination position-relative bottom-0 pt-2 pt-md-3 mt-4"></div>
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section class="container py-5 my-lg-3 my-xl-4 my-xxl-5">
+            <div class="text-center pt-sm-2 pt-md-4 pt-lg-3 pt-xl-4 pb-3 mx-auto mb-3 mb-lg-4"
+                style="max-width: 720px;">
+                <h2 class="h1 pt-1 pt-sm-2">Get some overview about QR Codes</h2>
+                <p class="mb-0">Generate customized QR Codes – Instantly connect, effortlessly share, and make your
+                    brand stand out with every scan!</p>
+            </div>
+            <div class="row g-4 mb-3 mb-xl-0 pb-sm-2 pb-md-4 pb-xl-5">
+                <div class="col-md-5 col-lg-4 order-md-1">
+                    <div class="card border-0 h-100 bg-size-cover bg-position-top-center"
+                        style="min-height: 280px; background-image: url(assets/img/landing/product/gallery/01.jpg);">
+                    </div>
+                </div>
+                <div class="col-md-7 col-lg-8 order-md-2">
+                    <div class="card border-0 bg-secondary h-100 px-xl-4 pb-sm-2 pb-xl-4">
+                        <img class="d-block mx-auto" src="assets/img/landing/product/gallery/03.png" width="408"
+                            alt="Image">
+                        <div class="card-body">
+                            <h3>What a QR code can do?</h3>
+                            <p class="card-text">Dynamic QR Codes are versatile, editable tools ideal for marketing,
+                                allowing businesses and nonprofits to update content
+                                via an online dashboard without reprinting, making them a cost-effective and flexible
+                                investment.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 col-lg-4 order-md-4">
+                    <div class="card border-0 h-100 bg-size-cover bg-position-center"
+                        style="min-height: 280px; background-image: url(assets/img/landing/product/gallery/02.jpg);">
+                    </div>
+                </div>
+                <div class="col-md-7 col-lg-8 order-md-3">
+                    <div class="card border-0 bg-secondary h-100">
+                        <div class="row g-0">
+                            <div class="col-lg-6">
+                                <img class="d-block" src="assets/img/landing/product/gallery/04.png" width="377"
+                                    alt="Image">
+                            </div>
+                            <div class="col-lg-6 align-self-center mt-n4 mt-lg-0">
+                                <div class="card-body">
+                                    <h3>How to generate and customize a QR code?</h3>
+                                    <p class="card-text">To generate and customize a QR code, use an online generator,
+                                        input your data (e.g., URL, text), choose Static or
+                                        Dynamic, and customize the design with colors, logos, or patterns. Test the code
+                                        for functionality, then download and
+                                        share it on your desired platforms.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials (Carousel) -->
+        <section class="container mt-n3 mt-sm-n2 pb-5 mb-md-2 mb-lg-3 mb-xl-4 mb-xxl-5">
+            <h2 class="h1 text-center pb-3 pb-lg-4">Dynamic QR code</h2>
+            <h4 class="h4 text-center">Dynamic QR Code solutions allow users to create QR Codes that can be edited even
+                after
+                printing. Unlike
+                static QR Codes,
+                they offer flexibility for real-time updates, tracking, and error correction. Ideal for marketing,
+                events, and
+                promotions, these solutions help businesses manage and adapt their campaigns efficiently without
+                reprinting.</h4>
+
+            <!-- Swiper slider -->
+            <div class="swiper pb-1 pb-md-2 pb-lg-3 pb-xl-4" data-swiper-options='{
+                  "spaceBetween": 24,
+                  "loop": true,
+                  "autoHeight": true,
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "clickable": true
+                  },
+                  "breakpoints": {
+                    "576": { "slidesPerView": 2 },
+                    "992": { "slidesPerView": 3 }
+                  }
+                }'>
+                <div class="swiper-wrapper">
+
+                    <!-- Item -->
+                    <div class="swiper-slide">
+                        <div class="card border-0 mb-4">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img class="rounded-circle" src="assets/img/avatar/22.jpg" width="60"
+                                        alt="Jane Cooper">
+                                    <div class="ps-3">
+                                        <div class="h6 mb-1">Jane Cooper</div>
+                                        <div class="fs-sm text-body-secondary">Medical Assistant</div>
+                                    </div>
+                                </div>
+                                <p class="card-text">Sit risus metus, vel neque eu lectus duis. Vulputate facilisi at
+                                    feugiat mi
+                                    aenean nunc enim faucibus arcu. Diam id accumsan sit.</p>
+                            </div>
+                        </div>
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img class="rounded-circle" src="assets/img/avatar/25.jpg" width="60"
+                                        alt="Cameron Williamson">
+                                    <div class="ps-3">
+                                        <div class="h6 mb-1">Cameron Williamson</div>
+                                        <div class="fs-sm text-body-secondary">Marketing Coordinator</div>
+                                    </div>
+                                </div>
+                                <p class="card-text">Nam convallis maecenas leo sapien interdum id. Facilisi dictum
+                                    lacinia in
+                                    phasellus. Nullam id sed tempor, volutpat blandit urna sagittis, commodo vestibulum.
+                                    Adipiscing dictumst nunc enim massa lacus lobortis.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="swiper-slide">
+                        <div class="card border-0 mb-4">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img class="rounded-circle" src="assets/img/avatar/23.jpg" width="60"
+                                        alt="Wade Warren">
+                                    <div class="ps-3">
+                                        <div class="h6 mb-1">Wade Warren</div>
+                                        <div class="fs-sm text-body-secondary">President of Sales</div>
+                                    </div>
+                                </div>
+                                <p class="card-text">Vitae tempor morbi tellus pulvinar. Ut iaculis sit tristique in
+                                    turpis
+                                    volutpat quam nec. Pretium eu nulla egestas ultrices. Donec in pulvinar ut fermentum
+                                    a,
+                                    nunc, aliquam. Integer dui dui ornare sed lacinia.</p>
+                            </div>
+                        </div>
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img class="rounded-circle" src="assets/img/avatar/26.jpg" width="60"
+                                        alt="Leslie Alexander">
+                                    <div class="ps-3">
+                                        <div class="h6 mb-1">Leslie Alexander</div>
+                                        <div class="fs-sm text-body-secondary">CEO, Divi</div>
+                                    </div>
+                                </div>
+                                <p class="card-text">Malesuada at ullamcorper adipiscing lobortis vestibulum. Aliquet
+                                    lobortis
+                                    justo arcu ut auctor porttitor amet, tortor. Justo.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="swiper-slide">
+                        <div class="card border-0 mb-4">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img class="rounded-circle" src="assets/img/avatar/24.jpg" width="60"
+                                        alt="Esther Howard">
+                                    <div class="ps-3">
+                                        <div class="h6 mb-1">Esther Howard</div>
+                                        <div class="fs-sm text-body-secondary">CEO, Slack</div>
+                                    </div>
+                                </div>
+                                <p class="card-text">Ante turpis leo dictum adipiscing nisl magnis elementum eu. Integer
+                                    consequat sed ipsum massa egestas integer proin id.</p>
+                            </div>
+                        </div>
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img class="rounded-circle" src="assets/img/avatar/27.jpg" width="60"
+                                        alt="Brooklyn Simmons">
+                                    <div class="ps-3">
+                                        <div class="h6 mb-1">Brooklyn Simmons</div>
+                                        <div class="fs-sm text-body-secondary">Marketing Coordinator</div>
+                                    </div>
+                                </div>
+                                <p class="card-text">In quisque dolor, aliquam faucibus. Gravida diam ornare egestas
+                                    proin quis
+                                    odio suspendisse pellentesque. Condimentum risus, rutrum curabitur faucibus mi a
+                                    turpis
+                                    morbi. Nulla euismod dolor quis amet sed.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="swiper-slide">
+                        <div class="card border-0 mb-4">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img class="rounded-circle" src="assets/img/avatar/28.jpg" width="60"
+                                        alt="Fannie Summers">
+                                    <div class="ps-3">
+                                        <div class="h6 mb-1">Fannie Summers </div>
+                                        <div class="fs-sm text-body-secondary">VP of Sales</div>
+                                    </div>
+                                </div>
+                                <p class="card-text">In et dui amet amet elementum urna, dictum. Eget leo ornare
+                                    bibendum a
+                                    fermentum. Rutrum pellentesque ipsum cras purus ac a ullamcorper. Elit ac amet quam
+                                    tellus
+                                    euismod ac aliquam pharetra lectus.</p>
+                            </div>
+                        </div>
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img class="rounded-circle" src="assets/img/avatar/29.jpg" width="60"
+                                        alt="Robert Fox">
+                                    <div class="ps-3">
+                                        <div class="h6 mb-1">Robert Fox</div>
+                                        <div class="fs-sm text-body-secondary">Marketing Coordinator</div>
+                                    </div>
+                                </div>
+                                <p class="card-text">At felis non consequat neque in ultrices tortor purus dui. At sed
+                                    fermentum, egestas amet et donec euismod risus. Nulla mauris.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination (bullets) -->
+                <div class="swiper-pagination position-relative bottom-0 mt-2 mt-md-3 mt-lg-4 pt-4"></div>
+            </div>
+        </section>
+
+        <!-- CEO quote + Process steps -->
+        <section class="overflow-hidden">
+            <div class="container pb-5 pt-3 pt-md-4 pt-lg-5 my-xl-3 my-xxl-5">
+                <div class="row pb-md-3 pb-lg-4 mb-2 mb-lg-3">
+
+                    <!-- CEO quote -->
+                    <div class="col-md-5 d-flex flex-column align-items-center mb-4 mb-md-0">
+                        <div class="position-relative" style="max-width: 416px;">
+                            <img class="d-block position-relative z-2"
+                                src="assets/img/landing/business-consulting/ceo.png" alt="Nicolas Black">
+                            <div class="bg-primary position-absolute start-0 bottom-0 w-100"
+                                style="height: 85.4%; border-radius: 2.25rem 8rem 2.25rem 2.25rem;"></div>
+                        </div>
+                        <div class="text-center text-md-start pt-3 mt-3">
+                            <h2 class="mb-2">Subcription in QR code</h2>
+
+                            <div class="position-relative pt-4" style="max-width: 500px;">
+                                <div class="position-absolute top-0 start-0 w-100 text-center text-md-start ms-md-1">
+                                    <svg class="text-border" width="155" height="111" viewBox="0 0 155 111"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M125.969 38.7937C129.372 30.2345 134.734 21.7781 141.902 13.6311C144.17 11.053 144.48 7.34066 142.623 4.45316C141.18 2.18441 138.808 0.94696 136.23 0.94696C135.508 0.94696 134.786 0.99826 134.064 1.25633C118.905 5.69065 83.4811 21.4171 82.5014 71.8454C82.1407 91.2842 96.3717 107.99 114.883 109.898C125.144 110.93 135.353 107.578 142.933 100.772C150.512 93.914 154.844 84.117 154.844 73.9077C154.844 56.8922 142.778 41.9905 125.969 38.7937Z">
+                                        </path>
+                                        <path
+                                            d="M32.5904 109.898C42.7999 110.93 53.0092 107.578 60.5888 100.772C68.1686 93.914 72.5 84.117 72.5 73.9077C72.5 56.8922 60.4342 41.9905 43.6248 38.7937C47.0281 30.2345 52.3905 21.7781 59.5578 13.6312C61.8265 11.0531 62.1359 7.34071 60.2794 4.45321C58.8358 2.18446 56.4638 0.947006 53.8857 0.947006C53.1641 0.947006 52.4421 0.998306 51.7202 1.25638C36.5608 5.6907 1.13734 21.4172 0.157654 71.8454V72.5671C0.157654 91.6968 14.2341 107.99 32.5904 109.898Z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <p class="fs-xl position-relative z-2 mb-0">Unlock the Power of QR Codes with a
+                                    Subscription – Edit, Track, and Elevate Your Connections!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Steps -->
+                    <div class="col-md-7 col-lg-6 col-xxl-5 offset-lg-1 offset-xxl-2">
+                        <div class="ps-md-4 ps-lg-0">
+                            <div class="position-relative d-flex justify-content-end my-3 py-1" data-aos="fade-left"
+                                data-aos-easing="ease-out-back">
+                                <div
+                                    class="btn btn-lg btn-icon btn-primary fs-xl fw-bold rounded-circle position-absolute top-50 start-0 translate-middle-y z-2 pe-none">
+                                    01</div>
+                                <div class="card border-0 ps-3" style="width: calc(100% - 1.75rem);">
+                                    <div class="card-body ps-4">
+                                        <h3 class="h5 card-title pb-2 mb-1">Dynamic QR Code Editing</h3>
+                                        <p class="card-text">A subscription allows you to update the content behind your
+                                            QR codes anytime without reprinting.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="position-relative d-flex justify-content-end my-3 py-1" data-aos="fade-left"
+                                data-aos-easing="ease-out-back" data-aos-delay="250">
+                                <div
+                                    class="btn btn-lg btn-icon btn-primary fs-xl fw-bold rounded-circle position-absolute top-50 start-0 translate-middle-y z-2 pe-none">
+                                    02</div>
+                                <div class="card border-0 ps-3" style="width: calc(100% - 1.75rem);">
+                                    <div class="card-body ps-4">
+                                        <h3 class="h5 card-title pb-2 mb-1">Analytics and Tracking</h3>
+                                        <p class="card-text">Gain insights into scan data, including location, device
+                                            type, and time, to measure campaign performance.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="position-relative d-flex justify-content-end my-3 py-1" data-aos="fade-left"
+                                data-aos-easing="ease-out-back" data-aos-delay="500">
+                                <div
+                                    class="btn btn-lg btn-icon btn-primary fs-xl fw-bold rounded-circle position-absolute top-50 start-0 translate-middle-y z-2 pe-none">
+                                    03</div>
+                                <div class="card border-0 ps-3" style="width: calc(100% - 1.75rem);">
+                                    <div class="card-body ps-4">
+                                        <h3 class="h5 card-title pb-2 mb-1">Custom Design Features</h3>
+                                        <p class="card-text">Access advanced customization tools to create QR codes that
+                                            align perfectly with your brand identity.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="position-relative d-flex justify-content-end my-3 py-1" data-aos="fade-left"
+                                data-aos-easing="ease-out-back" data-aos-delay="700">
+                                <div
+                                    class="btn btn-lg btn-icon btn-primary fs-xl fw-bold rounded-circle position-absolute top-50 start-0 translate-middle-y z-2 pe-none">
+                                    04</div>
+                                <div class="card border-0 ps-3" style="width: calc(100% - 1.75rem);">
+                                    <div class="card-body ps-4">
+                                        <h3 class="h5 card-title pb-2 mb-1">Bulk QR Code Generation</h3>
+                                        <p class="card-text">Generate multiple QR codes at once, streamlining efforts
+                                            for large-scale projects or campaigns.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials (Carousel) -->
+        <section class="container mt-n3 mt-sm-n2 pb-5 mb-md-2 mb-lg-3 mb-xl-4 mb-xxl-5">
+            <h2 class="h1 text-center pb-3 pb-lg-4">Dynamic QR code</h2>
+            <h4 class="h4 text-center">Dynamic QR Code solutions allow users to create QR Codes that can be edited even
+                after
+                printing. Unlike
+                static QR Codes,
+                they offer flexibility for real-time updates, tracking, and error correction. Ideal for marketing,
+                events, and
+                promotions, these solutions help businesses manage and adapt their campaigns efficiently without
+                reprinting.</h4>
+
+            <!-- Swiper slider -->
+            <div class="swiper pb-1 pb-md-2 pb-lg-3 pb-xl-4" data-swiper-options='{
+                          "spaceBetween": 24,
+                          "loop": true,
+                          "autoHeight": true,
+                          "pagination": {
+                            "el": ".swiper-pagination",
+                            "clickable": true
+                          },
+                          "breakpoints": {
+                            "576": { "slidesPerView": 2 },
+                            "992": { "slidesPerView": 3 }
+                          }
+                        }'>
+                <div class="swiper-wrapper">
+
+                    <!-- Item -->
+                    <div class="swiper-slide">
+                        <div class="card border-0 mb-4">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img class="rounded-circle" src="assets/img/avatar/22.jpg" width="60"
+                                        alt="Jane Cooper">
+                                    <div class="ps-3">
+                                        <div class="h6 mb-1">Jane Cooper</div>
+                                        <div class="fs-sm text-body-secondary">Medical Assistant</div>
+                                    </div>
+                                </div>
+                                <p class="card-text">Sit risus metus, vel neque eu lectus duis. Vulputate facilisi at
+                                    feugiat mi
+                                    aenean nunc enim faucibus arcu. Diam id accumsan sit.</p>
+                            </div>
+                        </div>
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img class="rounded-circle" src="assets/img/avatar/25.jpg" width="60"
+                                        alt="Cameron Williamson">
+                                    <div class="ps-3">
+                                        <div class="h6 mb-1">Cameron Williamson</div>
+                                        <div class="fs-sm text-body-secondary">Marketing Coordinator</div>
+                                    </div>
+                                </div>
+                                <p class="card-text">Nam convallis maecenas leo sapien interdum id. Facilisi dictum
+                                    lacinia in
+                                    phasellus. Nullam id sed tempor, volutpat blandit urna sagittis, commodo vestibulum.
+                                    Adipiscing dictumst nunc enim massa lacus lobortis.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="swiper-slide">
+                        <div class="card border-0 mb-4">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img class="rounded-circle" src="assets/img/avatar/23.jpg" width="60"
+                                        alt="Wade Warren">
+                                    <div class="ps-3">
+                                        <div class="h6 mb-1">Wade Warren</div>
+                                        <div class="fs-sm text-body-secondary">President of Sales</div>
+                                    </div>
+                                </div>
+                                <p class="card-text">Vitae tempor morbi tellus pulvinar. Ut iaculis sit tristique in
+                                    turpis
+                                    volutpat quam nec. Pretium eu nulla egestas ultrices. Donec in pulvinar ut fermentum
+                                    a,
+                                    nunc, aliquam. Integer dui dui ornare sed lacinia.</p>
+                            </div>
+                        </div>
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img class="rounded-circle" src="assets/img/avatar/26.jpg" width="60"
+                                        alt="Leslie Alexander">
+                                    <div class="ps-3">
+                                        <div class="h6 mb-1">Leslie Alexander</div>
+                                        <div class="fs-sm text-body-secondary">CEO, Divi</div>
+                                    </div>
+                                </div>
+                                <p class="card-text">Malesuada at ullamcorper adipiscing lobortis vestibulum. Aliquet
+                                    lobortis
+                                    justo arcu ut auctor porttitor amet, tortor. Justo.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="swiper-slide">
+                        <div class="card border-0 mb-4">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img class="rounded-circle" src="assets/img/avatar/24.jpg" width="60"
+                                        alt="Esther Howard">
+                                    <div class="ps-3">
+                                        <div class="h6 mb-1">Esther Howard</div>
+                                        <div class="fs-sm text-body-secondary">CEO, Slack</div>
+                                    </div>
+                                </div>
+                                <p class="card-text">Ante turpis leo dictum adipiscing nisl magnis elementum eu. Integer
+                                    consequat sed ipsum massa egestas integer proin id.</p>
+                            </div>
+                        </div>
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img class="rounded-circle" src="assets/img/avatar/27.jpg" width="60"
+                                        alt="Brooklyn Simmons">
+                                    <div class="ps-3">
+                                        <div class="h6 mb-1">Brooklyn Simmons</div>
+                                        <div class="fs-sm text-body-secondary">Marketing Coordinator</div>
+                                    </div>
+                                </div>
+                                <p class="card-text">In quisque dolor, aliquam faucibus. Gravida diam ornare egestas
+                                    proin quis
+                                    odio suspendisse pellentesque. Condimentum risus, rutrum curabitur faucibus mi a
+                                    turpis
+                                    morbi. Nulla euismod dolor quis amet sed.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="swiper-slide">
+                        <div class="card border-0 mb-4">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img class="rounded-circle" src="assets/img/avatar/28.jpg" width="60"
+                                        alt="Fannie Summers">
+                                    <div class="ps-3">
+                                        <div class="h6 mb-1">Fannie Summers </div>
+                                        <div class="fs-sm text-body-secondary">VP of Sales</div>
+                                    </div>
+                                </div>
+                                <p class="card-text">In et dui amet amet elementum urna, dictum. Eget leo ornare
+                                    bibendum a
+                                    fermentum. Rutrum pellentesque ipsum cras purus ac a ullamcorper. Elit ac amet quam
+                                    tellus
+                                    euismod ac aliquam pharetra lectus.</p>
+                            </div>
+                        </div>
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <img class="rounded-circle" src="assets/img/avatar/29.jpg" width="60"
+                                        alt="Robert Fox">
+                                    <div class="ps-3">
+                                        <div class="h6 mb-1">Robert Fox</div>
+                                        <div class="fs-sm text-body-secondary">Marketing Coordinator</div>
+                                    </div>
+                                </div>
+                                <p class="card-text">At felis non consequat neque in ultrices tortor purus dui. At sed
+                                    fermentum, egestas amet et donec euismod risus. Nulla mauris.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination (bullets) -->
+                <div class="swiper-pagination position-relative bottom-0 mt-2 mt-md-3 mt-lg-4 pt-4"></div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="container py-5 my-sm-2 my-md-4 my-lg-5">
+            <h2 class="h1 text-center pt-sm-3 mt-xxl-3 mx-auto" style="max-width: 40rem;">Other benefit you'll enjoy as
+                an member of us
+            </h2>
+            <p class="fs-lg text-center pb-3 mb-lg-4 mx-auto" style="max-width: 30rem;">Make sure all your tasks are
+                organized
+                so you can set the priorities and focus on important.</p>
+            <div
+                class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 gy-3 gy-sm-4 gy-xl-5 gx-4 gx-md-5 pb-xxl-4 mb-sm-2 mb-lg-0 mb-xl-2">
+                <div class="col">
+                    <div class="text-center px-xxl-4">
+                        <svg class="d-inline-block mb-3 mb-md-4" width="76" height="75" viewBox="0 0 76 75" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path class="text-warning"
+                                d="M38.0625 6.25C19.9063 6.25 6.75 21.0625 6.75 37.5C6.75 42.75 8.28125 48.1562 10.9688 53.0938C11.4688 53.9062 11.5312 54.9375 11.1875 55.9062L9.09375 62.9062C8.625 64.5937 10.0625 65.8438 11.6562 65.3438L17.9688 63.4688C19.6875 62.9062 21.0312 63.625 22.6281 64.5938C27.1906 67.2812 32.875 68.6562 38 68.6562C53.5 68.6562 69.25 56.6875 69.25 37.4062C69.25 20.7812 55.8125 6.25 38.0625 6.25Z"
+                                fill="currentColor"></path>
+                            <path class="text-primary" fill-rule="evenodd" clip-rule="evenodd"
+                                d="M37.9411 41.5306C35.7224 41.4993 33.9411 39.7181 33.9411 37.4993C33.9411 35.3118 35.7536 33.4993 37.9411 33.5305C40.1599 33.5305 41.9411 35.3118 41.9411 37.5306C41.9411 39.7181 40.1599 41.5306 37.9411 41.5306ZM23.5312 41.5303C21.3438 41.5303 19.5312 39.7178 19.5312 37.5303C19.5312 35.3115 21.3125 33.5303 23.5312 33.5303C25.75 33.5303 27.5312 35.3115 27.5312 37.5303C27.5312 39.7178 25.75 41.499 23.5312 41.5303ZM48.3458 37.5303C48.3458 39.7178 50.1271 41.5303 52.3458 41.5303C54.5646 41.5303 56.3458 39.7178 56.3458 37.5303C56.3458 35.3115 54.5646 33.5303 52.3458 33.5303C50.1271 33.5303 48.3458 35.3115 48.3458 37.5303Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <h3 class="h4 mb-2">Curated content</h3>
+                        <p>We have hundreds of QR Code ideas created specifically to help inspire you.</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="text-center px-xxl-4">
+                        <svg class="d-inline-block mb-3 mb-md-4" width="76" height="75" viewBox="0 0 76 75" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path class="text-primary"
+                                d="M32.2274 17.3606C32.3865 17.6845 32.4916 18.0315 32.5387 18.3881L33.4088 31.3253L33.8407 37.8279C33.8452 38.4966 33.9501 39.161 34.1521 39.7997C34.6737 41.0388 35.9286 41.8263 37.2939 41.7714L58.0979 40.4106C58.9988 40.3958 59.8688 40.7327 60.5164 41.3473C61.0561 41.8594 61.4045 42.5294 61.5143 43.25L61.5511 43.6876C60.6902 55.6086 51.9349 65.5516 40.0386 68.1183C28.1424 70.685 15.9433 65.263 10.0647 54.7961C8.36996 51.7552 7.31141 48.4128 6.95119 44.9651C6.80071 43.9445 6.73445 42.9136 6.75306 41.8825C6.73448 29.1018 15.8358 18.0525 28.576 15.3888C30.1094 15.1501 31.6126 15.9618 32.2274 17.3606Z"
+                                fill="currentColor"></path>
+                            <path class="text-warning"
+                                d="M40.7178 6.25268C54.9674 6.6152 66.9438 16.862 69.249 30.6635L69.227 30.7654L69.1641 30.9135L69.1729 31.32C69.1402 31.8586 68.9323 32.3768 68.5739 32.7954C68.2006 33.2314 67.6906 33.5283 67.129 33.6436L66.7865 33.6906L42.7841 35.2458C41.9857 35.3245 41.1907 35.0671 40.597 34.5375C40.1022 34.0962 39.7859 33.5004 39.6965 32.8585L38.0855 8.89094C38.0574 8.8099 38.0574 8.72204 38.0855 8.641C38.1075 7.98035 38.3983 7.35587 38.8929 6.90709C39.3876 6.45831 40.0448 6.22262 40.7178 6.25268Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <h3 class="h4 mb-2">Edgy styles</h3>
+                        <p>Use brand colors and company logo to stand out from your competition.</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="text-center px-xxl-4">
+                        <svg class="d-inline-block mb-3 mb-md-4" width="76" height="75" viewBox="0 0 76 75" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path class="text-warning"
+                                d="M41.0509 9.73004L48.0087 23.7122C48.5213 24.7252 49.4996 25.4287 50.628 25.585L66.2564 27.8611C67.1691 27.9893 67.9974 28.4708 68.5569 29.2056C69.1101 29.9309 69.3476 30.8502 69.2132 31.7537C69.1038 32.5041 68.7506 33.1982 68.2099 33.7297L56.8856 44.7072C56.0573 45.4732 55.6822 46.6082 55.8823 47.7181L58.6704 63.151C58.9673 65.0144 57.7327 66.7716 55.8823 67.1249C55.1196 67.2468 54.3382 67.1186 53.6505 66.7684L39.71 59.5054C38.6754 58.9832 37.4533 58.9832 36.4187 59.5054L22.4782 66.7684C20.7653 67.6783 18.643 67.0592 17.6897 65.3708C17.3365 64.6986 17.2115 63.9326 17.3271 63.1854L20.1152 47.7494C20.3152 46.6426 19.937 45.5014 19.1119 44.7353L7.78755 33.7641C6.44039 32.4635 6.39975 30.3218 7.69691 28.9742C7.72504 28.9461 7.7563 28.9148 7.78755 28.8835C8.32517 28.3364 9.03157 27.9893 9.79423 27.8987L25.4226 25.6194C26.5478 25.4599 27.5262 24.7627 28.0419 23.7434L34.7496 9.73004C35.3466 8.52943 36.5844 7.78218 37.9284 7.81344H38.3472C39.5131 7.95414 40.529 8.67638 41.0509 9.73004Z"
+                                fill="currentColor"></path>
+                            <path class="text-primary"
+                                d="M37.975 59.116C37.3697 59.1348 36.78 59.2974 36.2496 59.5883L22.3772 66.8348C20.6799 67.6449 18.6486 67.0162 17.697 65.393C17.3444 64.73 17.2165 63.97 17.335 63.2256L20.1058 47.8224C20.293 46.7027 19.9185 45.5643 19.1042 44.7761L7.7748 33.8077C6.43001 32.491 6.40504 30.3299 7.72176 28.9819C7.74048 28.9631 7.75608 28.9475 7.7748 28.9319C8.31147 28.4002 9.00415 28.0499 9.74988 27.9404L25.3913 25.6385C26.524 25.4947 27.5068 24.7878 28.0061 23.762L34.8049 9.57224C35.4508 8.42756 36.6895 7.74575 38 7.81768C37.975 8.74657 37.975 58.4842 37.975 59.116Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <h3 class="h4 mb-2">Secure collaborations</h3>
+                        <p>Invite your team members complete with their own logins. No extra fees.</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="text-center px-xxl-4">
+                        <svg class="d-inline-block mb-3 mb-md-4" width="76" height="75" viewBox="0 0 76 75" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path class="text-primary"
+                                d="M62.2797 36.3917C59.9969 33.7259 58.9596 31.4158 58.9596 27.4911V26.1567C58.9596 21.0423 57.7825 17.7471 55.2233 14.4519C51.2789 9.33435 44.6387 6.25 38.1382 6.25H37.8618C31.498 6.25 25.0658 9.19272 21.0531 14.1025C18.3542 17.4638 17.0404 20.9007 17.0404 26.1567V27.4911C17.0404 31.4158 16.0714 33.7259 13.7203 36.3917C11.9903 38.3556 11.4375 40.8797 11.4375 43.6116C11.4375 46.3466 12.3351 48.9368 14.1365 51.0423C16.4876 53.5665 19.8077 55.1779 23.1992 55.458C28.1095 56.0182 33.0198 56.2291 38.0016 56.2291C42.9802 56.2291 47.8905 55.8766 52.8039 55.458C56.1923 55.1779 59.5124 53.5665 61.8635 51.0423C63.6618 48.9368 64.5625 46.3466 64.5625 43.6116C64.5625 40.8797 64.0097 38.3556 62.2797 36.3917Z"
+                                fill="currentColor"></path>
+                            <path class="text-warning"
+                                d="M44.277 60.0886C42.7148 59.755 33.1954 59.755 31.6332 60.0886C30.2977 60.397 28.8535 61.1146 28.8535 62.6883C28.9312 64.1895 29.8101 65.5145 31.0276 66.3549L31.0245 66.358C32.5991 67.5855 34.4471 68.366 36.382 68.6461C37.4131 68.7877 38.4629 68.7814 39.5313 68.6461C41.4631 68.366 43.3111 67.5855 44.8857 66.358L44.8826 66.3549C46.1001 65.5145 46.9791 64.1895 47.0567 62.6883C47.0567 61.1146 45.6125 60.397 44.277 60.0886Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <h3 class="h4 mb-2">Helpful support</h3>
+                        <p>Our customer success team is here to help. If not, our help center is open 24/7.</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="text-center px-xxl-4">
+                        <svg class="d-inline-block mb-3 mb-md-4" width="76" height="75" viewBox="0 0 76 75" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path class="text-warning"
+                                d="M59.2775 28.1906C57.8666 28.1906 55.9976 28.1594 53.6708 28.1594C47.9959 28.1594 43.3298 23.4625 43.3298 17.7344V7.68437C43.3298 6.89375 42.6986 6.25 41.9158 6.25H25.3863C17.6724 6.25 11.4375 12.5812 11.4375 20.3406V54.0125C11.4375 62.1531 17.9694 68.75 26.0299 68.75H50.6446C58.3307 68.75 64.5625 62.4594 64.5625 54.6937V29.5969C64.5625 28.8031 63.9344 28.1625 63.1484 28.1656C61.8272 28.175 60.2429 28.1906 59.2775 28.1906Z"
+                                fill="currentColor"></path>
+                            <path class="text-primary"
+                                d="M50.7639 8.02291C49.8295 7.05103 48.1982 7.71978 48.1982 9.06666V17.3073C48.1982 20.7635 51.0451 23.6073 54.5014 23.6073C56.6795 23.6323 59.7045 23.6385 62.2732 23.6323C63.5889 23.6292 64.2576 22.0573 63.3451 21.1073C60.0482 17.6792 54.1451 11.5354 50.7639 8.02291Z"
+                                fill="currentColor"></path>
+                            <path class="text-primary" fill-rule="evenodd" clip-rule="evenodd"
+                                d="M28.5447 35.5859H39.1229C40.4072 35.5859 41.451 34.5452 41.451 33.2609C41.451 31.9765 40.4072 30.9327 39.1229 30.9327H28.5447C27.2604 30.9327 26.2197 31.9765 26.2197 33.2609C26.2197 34.5452 27.2604 35.5859 28.5447 35.5859ZM28.5448 51.1926H45.5573C46.8417 51.1926 47.8854 50.152 47.8854 48.8676C47.8854 47.5833 46.8417 46.5395 45.5573 46.5395H28.5448C27.2605 46.5395 26.2198 47.5833 26.2198 48.8676C26.2198 50.152 27.2605 51.1926 28.5448 51.1926Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <h3 class="h4 mb-2">High-quality files</h3>
+                        <p>Your QR Codes stay in high-resolution no matter what they’re printed on.</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="text-center px-xxl-4">
+                        <svg class="d-inline-block mb-3 mb-md-4" width="76" height="75" viewBox="0 0 76 75" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path class="text-warning"
+                                d="M38.2703 68.75C37.8833 68.75 37.4964 68.6611 37.1471 68.4803L25.8937 62.655C22.7005 61.0003 20.2025 59.1433 18.252 56.9799C13.9828 52.2485 11.6075 46.175 11.5698 39.8747L11.4376 19.1383C11.4219 16.7451 12.9666 14.597 15.2758 13.788L35.9391 6.58371C37.166 6.14551 38.5346 6.13938 39.7835 6.56226L60.5255 13.5214C62.8472 14.2967 64.4171 16.4294 64.4297 18.8196L64.5618 39.5713C64.6027 45.8624 62.3093 51.9605 58.1061 56.7439C56.1776 58.938 53.7017 60.8226 50.5399 62.5079L39.3871 68.465C39.0411 68.6519 38.6573 68.7469 38.2703 68.75Z"
+                                fill="currentColor"></path>
+                            <path class="text-primary"
+                                d="M35.8712 44.753C35.2672 44.756 34.6632 44.5385 34.1975 44.0911L28.2075 38.3301C27.2825 37.4353 27.2731 35.9828 28.1886 35.0819C29.1041 34.1779 30.5985 34.1687 31.5265 35.0605L35.8366 39.2035L46.3602 28.8276C47.2788 27.9236 48.7732 27.9144 49.6981 28.8061C50.6262 29.7009 50.6357 31.1565 49.7202 32.0543L37.5355 44.0696C37.0762 44.5231 36.4753 44.7499 35.8712 44.753Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <h3 class="h4 mb-2">Perfectly organized</h3>
+                        <p>Label your QR Codes, create folders, and add campaign info to keep them nice and tidy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="bg-secondary py-5">
+            <h2 class="h1 text-center pt-sm-3 mt-xxl-3 mx-auto" style="max-width: 40rem;">What are some of the best QR
+                Code examples and use cases?
+            </h2>
+            <p class="fs-lg pb-3 mb-lg-4 mx-auto container">QR codes have become versatile
+                tools across industries. Retailers use them for discounts and AR features, restaurants
+                for touchless menus, and education for quick access to resources. In healthcare, they link to patient
+                records, while
+                real estate employs them for virtual tours. QR codes seamlessly bridge physical and digital experiences.
+            </p>
+            <div class="container py-md-2 py-lg-4 my-xl-2 my-xxl-3">
+
+                <!-- Item -->
+                <div class="row align-items-center py-3 py-sm-4 py-lg-5 mb-3 my-sm-2 my-md-3 my-lg-0 my-xl-2 my-xxl-4"
+                    data-aos="fade-up" data-aos-duration="600" data-aos-offset="280" data-disable-parallax-down="md">
+                    <div
+                        class="col-md-6 col-xxl-5 offset-lg-1 offset-xl-2 offset-xxl-3 order-md-2 pb-1 pb-sm-2 pb-md-0 mb-4 mb-md-0">
+                        <div class="position-relative">
+                            <img class="d-block rounded-1" src="assets/img/landing/corporate/features/01.jpg"
+                                alt="Image">
+                            <div
+                                class="d-none d-lg-block position-absolute top-0 end-0 translate-middle-y w-auto pe-1 me-4">
+                                <div data-aos="fade-up" data-aos-duration="950" data-aos-offset="280">
+                                    <svg class="text-info" width="107" height="107" viewBox="0 0 107 107"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M106.192 53.0468C106.225 63.5385 103.146 73.8042 97.3443 82.5459C91.5426 91.2875 83.279 98.1125 73.5985 102.158C63.918 106.203 53.2553 107.287 42.9589 105.272C32.6624 103.257 23.1946 98.2343 15.7528 90.8387C8.31094 83.4431 3.22928 74.0068 1.15039 63.7231C-0.92849 53.4394 0.0887821 42.7702 4.07357 33.0647C8.05836 23.3591 14.8317 15.0531 23.537 9.19711C32.2424 3.34107 42.4887 0.197979 52.9804 0.16529L53.1457 53.2121L106.192 53.0468Z">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-5 col-xl-4 order-md-1" data-aos="fade-up" data-aos-duration="800"
+                        data-aos-offset="180" data-disable-parallax-down="md">
+                        <div class="pe-md-4 pe-lg-0">
+                            <h2 class="h1 pb-sm-2 pb-lg-3">For Restaurants</h2>
+                            <p class="fs-xl pb-3 mb-1 mb-sm-2 mb-md-3 mb-lg-4">Enhance the dining experience by
+                                integrating QR codes for feedback, dish galleries, and seamless connectivity.</p>
+                            <ul class="list-unstyled pb-3 mb-3 mb-lg-4">
+                                <li class="d-flex pt-1 mt-2 mx-2 mx-md-0">
+                                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                                    Feedback QR Code: Add to tables or menus to encourage diners to rate their
+                                    experience easily.
+                                </li>
+                                <li class="d-flex pt-1 mt-2 mx-2 mx-md-0">
+                                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                                    Photo Gallery QR Code: Showcase high-quality images of dishes to entice customers.
+                                </li>
+                                <li class="d-flex pt-1 mt-2 mx-2 mx-md-0">
+                                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                                    Wi-Fi QR Code: Allow guests to connect to your Wi-Fi network instantly without
+                                    typing in a password.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item -->
+                <div class="row align-items-center py-3 py-sm-4 py-lg-5 mb-3 my-sm-2 my-md-3 my-lg-0 my-xl-2 my-xxl-4"
+                    data-aos="fade-up" data-aos-duration="600" data-aos-offset="280" data-disable-parallax-down="md">
+                    <div
+                        class="col-md-6 col-xxl-5 offset-xl-1 offset-xxl-2 order-md-2 pb-1 pb-sm-2 pb-md-0 mb-4 mb-md-0">
+                        <div class="position-relative">
+                            <img class="d-block rounded-1 position-relative z-2"
+                                src="assets/img/landing/corporate/features/02.jpg" alt="Image">
+                            <div
+                                class="d-none d-lg-block position-absolute top-0 start-0 translate-middle-x w-auto pt-3 mt-5">
+                                <div data-aos="fade-up" data-aos-duration="950" data-aos-offset="280">
+                                    <svg class="text-primary" width="160" height="160" viewBox="0 0 160 160"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="80" cy="80" r="80"></circle>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-5 order-md-1" data-aos="fade-up" data-aos-duration="800"
+                        data-aos-offset="180" data-disable-parallax-down="md">
+                        <div class="pe-md-4 pe-lg-0">
+                            <h2 class="h1 pb-sm-2 pb-lg-3">For Hotels and Resorts</h2>
+                            <p class="fs-xl pb-3 mb-1 mb-sm-2 mb-md-3 mb-lg-4">Provide convenience and improve
+                                operations by using QR codes for guest information, promotions, and inventory
+                                management.</p>
+                            <ul class="list-unstyled pb-3 mb-3 mb-lg-4">
+                                <li class="d-flex pt-1 mt-2 mx-2 mx-md-0">
+                                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                                    QR Code on Key Cards: Provide guests with access to information about events,
+                                    promotions, or menus directly from their
+                                    room.
+                                </li>
+                                <li class="d-flex pt-1 mt-2 mx-2 mx-md-0">
+                                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                                    Inventory Management QR Codes: Help staff track stock levels by scanning codes
+                                    attached to products with purchase dates
+                                    and stock counts.
+                                </li>
+                                <li class="d-flex pt-1 mt-2 mx-2 mx-md-0">
+                                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                                    Wi-Fi QR Code: Allow guests to connect to your Wi-Fi network instantly without
+                                    typing in a password.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item -->
+                <div class="row align-items-center py-3 py-sm-4 py-lg-5 my-sm-2 my-md-3 my-lg-0 my-xl-2 my-xxl-4"
+                    data-aos="fade-up" data-aos-duration="600" data-aos-offset="280" data-disable-parallax-down="md">
+                    <div
+                        class="col-md-6 col-xxl-5 offset-lg-1 offset-xl-2 offset-xxl-3 order-md-2 pb-1 pb-sm-2 pb-md-0 mb-4 mb-md-0">
+                        <div class="position-relative">
+                            <img class="d-block rounded-1" src="assets/img/landing/corporate/features/03.jpg"
+                                alt="Image">
+                            <div
+                                class="d-none d-lg-block position-absolute top-0 start-50 translate-middle w-auto ms-2">
+                                <div data-aos="fade-up" data-aos-duration="950" data-aos-offset="280">
+                                    <svg class="text-danger" width="108" height="111" viewBox="0 0 108 111"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M68.9244 1.23484C69.1072 0.713703 69.6783 0.438641 70.1961 0.630706C78.5792 3.74012 86.1086 8.79818 92.1601 15.3932C98.4371 22.2339 102.93 30.5171 105.241 39.5091C107.552 48.501 107.61 57.9241 105.41 66.9438C103.209 75.9634 98.8179 84.3011 92.6254 91.2184C86.4328 98.1356 78.6299 103.419 69.9078 106.6C61.1857 109.782 51.8136 110.763 42.6217 109.457C33.4298 108.151 24.7018 104.598 17.2109 99.1136C9.98911 93.8259 4.13195 86.8998 0.117483 78.9106C-0.130486 78.4171 0.079957 77.8191 0.577752 77.5799L21.7446 67.4094C22.2425 67.1702 22.8384 67.3807 23.0936 67.8705C25.2883 72.084 28.4252 75.7403 32.2656 78.5522C36.3752 81.5612 41.1634 83.5102 46.2062 84.2266C51.2489 84.943 56.3905 84.4048 61.1756 82.6595C65.9606 80.9142 70.2414 78.0157 73.6387 74.2208C77.0359 70.426 79.4449 65.8518 80.6522 60.9036C81.8594 55.9553 81.8277 50.7857 80.5598 45.8526C79.2919 40.9196 76.827 36.3753 73.3834 32.6224C70.1654 29.1154 66.1855 26.4006 61.7558 24.6837C61.2409 24.4841 60.9659 23.9149 61.1488 23.3938L68.9244 1.23484Z">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-5 col-xl-4 order-md-1" data-aos="fade-up" data-aos-duration="800"
+                        data-aos-offset="180" data-disable-parallax-down="md">
+                        <div class="pe-md-4 pe-lg-0">
+                            <h2 class="h1 pb-sm-2 pb-lg-3">Non-Profits</h2>
+                            <p class="fs-xl mb-lg-4">Simplify engagement and donations while promoting events and
+                                gathering feedback through dynamic QR codes.</p>
+                            <ul class="list-unstyled pb-3 mb-3 mb-lg-4">
+                                <li class="d-flex pt-1 mt-2 mx-2 mx-md-0">
+                                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                                    Donation QR Code: Place on brochures or posters to allow easy donations via
+                                    smartphones.
+                                </li>
+                                <li class="d-flex pt-1 mt-2 mx-2 mx-md-0">
+                                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                                    Social Media QR Code: Swap with a link to your social media pages to encourage
+                                    followers.
+                                </li>
+                                <li class="d-flex pt-1 mt-2 mx-2 mx-md-0">
+                                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                                    Event QR Code: Promote events by changing the QR Code to direct people to event
+                                    details.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item -->
+                <div class="row align-items-center py-3 py-sm-4 py-lg-5 mb-3 my-sm-2 my-md-3 my-lg-0 my-xl-2 my-xxl-4"
+                    data-aos="fade-up" data-aos-duration="600" data-aos-offset="280" data-disable-parallax-down="md">
+                    <div
+                        class="col-md-6 col-xxl-5 offset-lg-1 offset-xl-2 offset-xxl-3 order-md-2 pb-1 pb-sm-2 pb-md-0 mb-4 mb-md-0">
+                        <div class="position-relative">
+                            <img class="d-block rounded-1" src="assets/img/landing/corporate/features/01.jpg"
+                                alt="Image">
+                            <div
+                                class="d-none d-lg-block position-absolute top-0 end-0 translate-middle-y w-auto pe-1 me-4">
+                                <div data-aos="fade-up" data-aos-duration="950" data-aos-offset="280">
+                                    <svg class="text-info" width="107" height="107" viewBox="0 0 107 107"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M106.192 53.0468C106.225 63.5385 103.146 73.8042 97.3443 82.5459C91.5426 91.2875 83.279 98.1125 73.5985 102.158C63.918 106.203 53.2553 107.287 42.9589 105.272C32.6624 103.257 23.1946 98.2343 15.7528 90.8387C8.31094 83.4431 3.22928 74.0068 1.15039 63.7231C-0.92849 53.4394 0.0887821 42.7702 4.07357 33.0647C8.05836 23.3591 14.8317 15.0531 23.537 9.19711C32.2424 3.34107 42.4887 0.197979 52.9804 0.16529L53.1457 53.2121L106.192 53.0468Z">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-5 col-xl-4 order-md-1" data-aos="fade-up" data-aos-duration="800"
+                        data-aos-offset="180" data-disable-parallax-down="md">
+                        <div class="pe-md-4 pe-lg-0">
+                            <h2 class="h1 pb-sm-2 pb-lg-3">For Business Consultants</h2>
+                            <p class="fs-xl pb-3 mb-1 mb-sm-2 mb-md-3 mb-lg-4">Boost professionalism and accessibility
+                                by using QR codes for contact sharing, multimedia content, and easy appointment
+                                booking.</p>
+                            <ul class="list-unstyled pb-3 mb-3 mb-lg-4">
+                                <li class="d-flex pt-1 mt-2 mx-2 mx-md-0">
+                                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                                    vCard QR Code: Include on business cards for easy contact saving.
+                                </li>
+                                <li class="d-flex pt-1 mt-2 mx-2 mx-md-0">
+                                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                                    Multimedia QR Code: Use video or audio links in print ads to offer dynamic content.
+                                </li>
+                                <li class="d-flex pt-1 mt-2 mx-2 mx-md-0">
+                                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                                    Consultation Booking QR Code: Place on office windows or promotional materials to
+                                    allow people to schedule consultations
+                                    easily.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item -->
+                <div class="row align-items-center py-3 py-sm-4 py-lg-5 mb-3 my-sm-2 my-md-3 my-lg-0 my-xl-2 my-xxl-4"
+                    data-aos="fade-up" data-aos-duration="600" data-aos-offset="280" data-disable-parallax-down="md">
+                    <div
+                        class="col-md-6 col-xxl-5 offset-xl-1 offset-xxl-2 order-md-2 pb-1 pb-sm-2 pb-md-0 mb-4 mb-md-0">
+                        <div class="position-relative">
+                            <img class="d-block rounded-1 position-relative z-2"
+                                src="assets/img/landing/corporate/features/02.jpg" alt="Image">
+                            <div
+                                class="d-none d-lg-block position-absolute top-0 start-0 translate-middle-x w-auto pt-3 mt-5">
+                                <div data-aos="fade-up" data-aos-duration="950" data-aos-offset="280">
+                                    <svg class="text-primary" width="160" height="160" viewBox="0 0 160 160"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="80" cy="80" r="80"></circle>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-5 order-md-1" data-aos="fade-up" data-aos-duration="800"
+                        data-aos-offset="180" data-disable-parallax-down="md">
+                        <div class="pe-md-4 pe-lg-0">
+                            <h2 class="h1 pb-sm-2 pb-lg-3">For Personal Use</h2>
+                            <p class="fs-xl pb-3 mb-1 mb-sm-2 mb-md-3 mb-lg-4">Add convenience and creativity to
+                                everyday tasks with QR codes for Wi-Fi access, resumes, and event RSVPs.</p>
+                            <ul class="list-unstyled pb-3 mb-3 mb-lg-4">
+                                <li class="d-flex pt-1 mt-2 mx-2 mx-md-0">
+                                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                                    Wi-Fi QR Code: Use at home for guests to connect to your Wi-Fi without needing the
+                                    password.
+                                </li>
+                                <li class="d-flex pt-1 mt-2 mx-2 mx-md-0">
+                                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                                    Resume QR Code: Add to resumes to link to your online portfolio or LinkedIn profile.
+                                </li>
+                                <li class="d-flex pt-1 mt-2 mx-2 mx-md-0">
+                                    <i class="ai-check-alt text-primary fs-4 mt-n1 me-2"></i>
+                                    Event QR Code: Use on invitations to make it easy for guests to RSVP and save the
+                                    date to their calendars.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ (Accordion) -->
+        <section class="bg-secondary py-5">
+            <div class="container py-lg-3 py-xl-5">
+                <div class="row pt-1 pb-2 py-sm-4">
+                    <div class="col-md-4 text-center text-md-start">
+                        <h2 class="h1">Learn about QR codes?</h2>
+                        <!-- <p class="pb-3 pb-sm-4">Et felis vitae ac venenatis lacus cras etiam risus scelerisque auctor
+                                    adipiscing
+                                    in a porta</p> -->
+                        <div class="d-none d-md-flex justify-content-center">
+                            <svg class="text-warning ms-n4" width="200" height="211" viewBox="0 0 200 211" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M198.804 194.488C189.279 189.596 179.529 185.52 169.407 182.07L169.384 182.049C169.227 181.994 169.07 181.939 168.912 181.884C166.669 181.139 165.906 184.546 167.669 185.615C174.053 189.473 182.761 191.837 189.146 195.695C156.603 195.912 119.781 196.591 91.266 179.049C62.5221 161.368 48.1094 130.695 56.934 98.891C84.5539 98.7247 112.556 84.0176 129.508 62.667C136.396 53.9724 146.193 35.1448 129.773 30.2717C114.292 25.6624 93.7109 41.8875 83.1971 51.3147C70.1109 63.039 59.63 78.433 54.2039 95.0087C52.1221 94.9842 50.0776 94.8683 48.0703 94.6608C30.1803 92.8027 11.2197 83.6338 5.44902 65.1074C-1.88449 41.5699 14.4994 19.0183 27.9202 1.56641C28.6411 0.625793 27.2862 -0.561638 26.5419 0.358501C13.4588 16.4098 -0.221091 34.5242 0.896608 56.5659C1.8218 74.6941 14.221 87.9401 30.4121 94.2058C37.7076 97.0203 45.3454 98.5003 53.0334 98.8449C47.8679 117.532 49.2961 137.487 60.7729 155.283C87.7615 197.081 139.616 201.147 184.786 201.155L174.332 206.827C172.119 208.033 174.345 211.287 176.537 210.105C182.06 207.125 187.582 204.122 193.084 201.144C193.346 201.147 195.161 199.887 195.423 199.868C197.08 198.548 193.084 201.144 195.528 199.81C196.688 199.192 197.846 198.552 199.006 197.935C200.397 197.167 200.007 195.087 198.804 194.488ZM60.8213 88.0427C67.6894 72.648 78.8538 59.1566 92.1207 49.0388C98.8475 43.9065 106.334 39.2953 114.188 36.1439C117.295 34.8947 120.798 33.6609 124.168 33.635C134.365 33.5511 136.354 42.9911 132.638 51.031C120.47 77.4222 86.8639 93.9837 58.0983 94.9666C58.8971 92.6666 59.783 90.3603 60.8213 88.0427Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-lg-7 offset-lg-1">
+                        <div class="accordion" id="faq">
+                            <div class="accordion-item bg-light">
+                                <h3 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#questionOne" aria-expanded="true"
+                                        aria-controls="questionOne">Who use the QR code?</button>
+                                </h3>
+                                <div class="accordion-collapse collapse show" id="questionOne"
+                                    aria-labelledby="headingOne" data-bs-parent="#faq">
+                                    <div class="accordion-body fs-sm">QR codes are incredibly versatile and can be
+                                        utilized by anyone aiming to enhance their marketing efforts or simplify
+                                        personal tasks. Whether you’re an individual creating QR codes for convenience
+                                        or a business seeking innovative ways to
+                                        engage customers, a QR code generator can be the perfect tool. These codes are
+                                        suitable for both commercial and
+                                        non-commercial purposes, making them accessible to a wide range of users.</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item bg-light">
+                                <h3 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#questionTwo" aria-expanded="false"
+                                        aria-controls="questionTwo">Why choose this QR code solution?</button>
+                                </h3>
+                                <div class="accordion-collapse collapse" id="questionTwo" aria-labelledby="headingTwo"
+                                    data-bs-parent="#faq">
+                                    <div class="accordion-body fs-sm">Our QR Code Generator stands out as one of the
+                                        most effective marketing tools available today. With its diverse range of
+                                        features and user-friendly interface, it offers unmatched value for businesses
+                                        and individuals alike. Still not
+                                        convinced? You can explore all its features risk-free with a 14-day free trial,
+                                        allowing you to experience the benefits
+                                        firsthand.</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item bg-light">
+                                <h3 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#questionThree" aria-expanded="false"
+                                        aria-controls="questionThree">How to Create a QR Code?</button>
+                                </h3>
+                                <div class="accordion-collapse collapse" id="questionThree"
+                                    aria-labelledby="headingThree" data-bs-parent="#faq">
+                                    <div class="accordion-body fs-sm">Creating a QR code is simple and straightforward.
+                                        For specific instructions tailored to various QR code applications,
+                                        you can click on the links provided for each solution listed above.
+                                        Alternatively, if you’re looking for a general
+                                        guide, visit our comprehensive “How to Create a QR Code” page to get started
+                                        quickly and efficiently.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Vendor scripts: JS libraries and plugins -->
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/jarallax/dist/jarallax.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/aos/dist/aos.js"></script>
+
+    <!-- Bootstrap + Theme scripts -->
+    <script src="assets/js/theme.js" defer></script>
+</body>
+
+</html>
