@@ -20,6 +20,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
         rel="stylesheet" id="google-font">
 
+    <!--vendor-->
+    <link rel="stylesheet" media="screen" href="../assets/vendor/flatpickr/dist/flatpickr.min.css">
+
     <!-- Font icons -->
     <link rel="stylesheet" href="assets/icons/around-icons.min.css">
 
@@ -506,7 +509,7 @@
                 <div class="row pt-xl-4">
 
                     <!-- Sticky image -->
-                    <div class="col-md-5 col-lg-6 order-md-2 position-relative mb-3 mb-md-0"
+                    <div class="col-md-5 col-lg-6 offset-xxl-1 order-md-2 position-relative mb-3 mb-md-0"
                         style="margin-top: -115px;">
                         <div class="d-none d-md-block position-absolute bottom-0 end-0 text-uppercase fw-bold lh-1 pb-5 mb-4 pe-3"
                             style="color: var(--ar-gray-100); font-size: 180px; transform: translate3d(0,0,0);">
@@ -596,54 +599,159 @@
                 <div class="row gy-md-5 gy-4 mb-md-5 mb-4 pb-lg-2">
                     <div class="col-xl-8 col-lg-8">
                         <div class="card card-body bg-white shadow-sm mb-4">
-                            <ul class="nav nav-pills" role="tablist">
-                                <li class="nav-item">
-                                    <a href="#url" class="nav-link rounded fs-sm active" data-bs-toggle="tab"
-                                        role="tab">
-                                        URL
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#v-card" class="nav-link rounded fs-sm" data-bs-toggle="tab" role="tab">
-                                        VCARD
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#text" class="nav-link rounded fs-sm" data-bs-toggle="tab" role="tab">
-                                        TEXT
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#email" class="nav-link rounded fs-sm" data-bs-toggle="tab" role="tab">
-                                        EMAIL
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#sms" class="nav-link rounded fs-sm" data-bs-toggle="tab" role="tab">
-                                        SMS
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#wifi" class="nav-link rounded fs-sm" data-bs-toggle="tab" role="tab">
-                                        WIFI
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#bitcoin" class="nav-link rounded fs-sm" data-bs-toggle="tab" role="tab">
-                                        BITCOIN
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#twitter" class="nav-link rounded fs-sm" data-bs-toggle="tab" role="tab">
-                                        TWITTER
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#facebook" class="nav-link rounded fs-sm" data-bs-toggle="tab" role="tab">
-                                        FACEBOOK
-                                    </a>
-                                </li>
-                            </ul>
+
+                            <div class="btn-group dropdown flex-fill dropdown_form">
+                                <button type="button" class=""
+                                    style="width:fit-content; border:none; background:transparent"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div class="dropdown_form-btn btn btn-outline-secondary dropdown-toggle"><i
+                                            class="ai-link me-1"></i>URL</div>
+                                </button>
+                                <div class="dropdown-menu my-1 px-3">
+                                    <ul class="nav nav-tabs m-0 row" role="tablist">
+                                        <li class="nav-item col-md-3 m-0">
+                                            <a href="#url" class="dropdown_form-item nav-link rounded fs-sm active"
+                                                data-bs-toggle="tab" role="tab">
+                                                <i class="ai-link me-1"></i>
+                                                URL
+                                            </a>
+                                        </li>
+                                        <li class="nav-item col-md-3 m-0">
+                                            <a href="#v-card" class="dropdown_form-item nav-link rounded fs-sm"
+                                                data-bs-toggle="tab" role="tab">
+                                                <i class="ai-link me-1"></i>
+                                                VCARD
+                                            </a>
+                                        </li>
+                                        <li class="nav-item col-md-3 m-0">
+                                            <a href="#text" class=" dropdown_form-item nav-link rounded fs-sm"
+                                                data-bs-toggle="tab" role="tab">
+                                                TEXT
+                                            </a>
+                                        </li>
+                                        <li class="nav-item col-md-3 m-0">
+                                            <a href="#email" class="dropdown_form-item nav-link rounded fs-sm"
+                                                data-bs-toggle="tab" role="tab">
+                                                EMAIL
+                                            </a>
+                                        </li>
+                                        <li class="nav-item col-md-3 m-0">
+                                            <a href="#sms" class="dropdown_form-item nav-link rounded fs-sm"
+                                                data-bs-toggle="tab" role="tab">
+                                                SMS
+                                            </a>
+                                        </li>
+                                        <li class="nav-item col-md-3 m-0">
+                                            <a href="#wifi" class="dropdown_form-item nav-link rounded fs-sm"
+                                                data-bs-toggle="tab" role="tab">
+                                                WIFI
+                                            </a>
+                                        </li>
+                                        <li class="nav-item col-md-3 m-0">
+                                            <a href="#bitcoin" class="dropdown_form-item nav-link rounded fs-sm"
+                                                data-bs-toggle="tab" role="tab">
+                                                BITCOIN
+                                            </a>
+                                        </li>
+                                        <li class="nav-item col-md-3 m-0">
+                                            <a href="#twitter" class="dropdown_form-item nav-link rounded fs-sm"
+                                                data-bs-toggle="tab" role="tab">
+                                                TWITTER
+                                            </a>
+                                        </li>
+                                        <li class="nav-item col-md-3 m-0">
+                                            <a href="#facebook" class="dropdown_form-item nav-link rounded fs-sm"
+                                                data-bs-toggle="tab" role="tab">
+                                                FACEBOOK
+                                            </a>
+                                        </li>
+                                        <li class="nav-item col-md-3 m-0">
+                                            <a href="#epc" class="dropdown_form-item nav-link rounded fs-sm"
+                                                data-bs-toggle="tab" role="tab">
+                                                EPC
+                                            </a>
+                                        </li>
+                                        <li class="nav-item col-md-3 m-0">
+                                            <a href="#pdf" class="dropdown_form-item nav-link rounded fs-sm"
+                                                data-bs-toggle="tab" role="tab">
+                                                PDF
+                                            </a>
+                                        </li>
+                                        <li class="nav-item col-md-3 m-0">
+                                            <a href="#mp3" class="dropdown_form-item nav-link rounded fs-sm"
+                                                data-bs-toggle="tab" role="tab">
+                                                MP3
+                                            </a>
+                                        </li>
+                                        <li class="nav-item col-md-3 m-0">
+                                            <a href="#images" class="dropdown_form-item nav-link rounded fs-sm"
+                                                data-bs-toggle="tab" role="tab">
+                                                IMAGES
+                                            </a>
+                                        </li>
+                                        <li class="nav-item col-md-3 m-0">
+                                            <a href="#video" class="dropdown_form-item nav-link rounded fs-sm"
+                                                data-bs-toggle="tab" role="tab">
+                                                VIDEO
+                                            </a>
+                                        </li>
+                                        <li class="nav-item col-md-3 m-0">
+                                            <a href="#appstores" class="dropdown_form-item nav-link rounded fs-sm"
+                                                data-bs-toggle="tab" role="tab">
+                                                APP STORES
+                                            </a>
+                                        </li>
+                                        <li class="nav-item col-md-3 m-0">
+                                            <a href="#dynamic-url" class="dropdown_form-item nav-link rounded fs-sm"
+                                                data-bs-toggle="tab" role="tab">
+                                                DYNAMIC URL
+                                            </a>
+                                        </li>
+                                        <li class="nav-item col-md-3 m-0">
+                                            <a href="#social-media" class="dropdown_form-item nav-link rounded fs-sm"
+                                                data-bs-toggle="tab" role="tab">
+                                                SOCIAL MEDIA
+                                            </a>
+                                        </li>
+                                        <li class="nav-item col-md-3 m-0">
+                                            <a href="#coupon" class="dropdown_form-item nav-link rounded fs-sm"
+                                                data-bs-toggle="tab" role="tab">
+                                                COUNPON
+                                            </a>
+                                        </li>
+                                        <li class="nav-item col-md-3 m-0">
+                                            <a href="#v-card-plus" class="dropdown_form-item nav-link rounded fs-sm"
+                                                data-bs-toggle="tab" role="tab">
+                                                VCARD PLUS
+                                            </a>
+                                        </li>
+                                        <li class="nav-item col-md-3 m-0">
+                                            <a href="#business" class="dropdown_form-item nav-link rounded fs-sm"
+                                                data-bs-toggle="tab" role="tab">
+                                                BUSINESS
+                                            </a>
+                                        </li>
+                                        <li class="nav-item col-md-3 m-0">
+                                            <a href="#feedback" class="dropdown_form-item nav-link rounded fs-sm"
+                                                data-bs-toggle="tab" role="tab">
+                                                FEEDBACK
+                                            </a>
+                                        </li>
+                                        <li class="nav-item col-md-3 m-0">
+                                            <a href="#rating" class="dropdown_form-item nav-link rounded fs-sm"
+                                                data-bs-toggle="tab" role="tab">
+                                                RATING
+                                            </a>
+                                        </li>
+                                        <li class="nav-item col-md-3 m-0">
+                                            <a href="#event" class="dropdown_form-item nav-link rounded fs-sm"
+                                                data-bs-toggle="tab" role="tab">
+                                                EVENT
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
 
                             <!--Tab content-->
                             <div class="tab-content mt-5">
@@ -663,20 +771,20 @@
                                 </div>
                                 <!--V Card-->
                                 <div class="tab-pane fade" id="v-card" role="tabpanel">
-                                    <h3 class="">vCard QR code</h3>
+                                    <h3>vCard QR code</h3>
                                     <!-- V Card Input -->
                                     <form class="needs-validation" novalidate>
-                                        <div class="row">
+                                        <div class="row mb-3">
                                             <div class="col-md-4">
                                                 <p class="fs-6">Your name:</p>
                                             </div>
                                             <div class="col-md-4 mb-3">
-                                                <input class="form-control" type="text" id="validationCustom01"
+                                                <input class="form-control" type="text" id="vcard-name"
                                                     placeholder="First name" value="" required>
                                                 <div class="valid-feedback">Looks good!</div>
                                             </div>
                                             <div class="col-md-4 mb-3">
-                                                <input class="form-control" type="text" id="validationCustom02"
+                                                <input class="form-control" type="text" id="vcard-lastname"
                                                     placeholder="Last name" value="" required>
                                                 <div class="valid-feedback">Looks good!</div>
                                             </div>
@@ -688,16 +796,16 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <input class="form-control" placeholder="mobile" type="tel"
-                                                    id="mobile-input" value="">
+                                                    id="vcard-mobile" value="">
 
                                                 <div class="row mt-3">
                                                     <div class="col-md-6">
                                                         <input class="form-control" placeholder="phone" type="tel"
-                                                            id="tel-input" value="">
+                                                            id="vcard-phone" value="">
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input class="form-control" placeholder="tax"
-                                                            type="number-input" id="tax-input" value="">
+                                                        <input class="form-control" placeholder="tax" id="vcard-tax"
+                                                            type="number-input" value="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -709,7 +817,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <input class="form-control" placeholder="your@gmail.com" type="email"
-                                                    id="email-input" value="">
+                                                    id="vcard-email" value="">
                                             </div>
                                         </div>
 
@@ -719,11 +827,11 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <input class="form-control" placeholder="Company" type="text"
-                                                    id="company-input" value="">
+                                                    id="vcard-company" value="">
                                             </div>
                                             <div class="col-md-4">
                                                 <input class="form-control" placeholder="Your Job" type="text"
-                                                    id="job-input" value="">
+                                                    id="vcard-job" value="">
                                             </div>
                                         </div>
 
@@ -732,7 +840,7 @@
                                                 <p class="fs-6">Street:</p>
                                             </div>
                                             <div class="col-md-8">
-                                                <input class="form-control" placeholder="" type="text" id="street-input"
+                                                <input class="form-control" placeholder="" type="text" id="vcard-street"
                                                     value="">
                                             </div>
                                         </div>
@@ -742,11 +850,11 @@
                                                 <p class="fs-6">City:</p>
                                             </div>
                                             <div class="col-md-5">
-                                                <input class="form-control" placeholder="" type="text" id="city-input"
+                                                <input class="form-control" placeholder="" type="text" id="vcard-city"
                                                     value="">
                                             </div>
                                             <div class="col-md-3">
-                                                <input class="form-control" placeholder="ZIP" type="text" id="zip-input"
+                                                <input class="form-control" placeholder="ZIP" type="text" id="vcard-zip"
                                                     value="">
                                             </div>
                                         </div>
@@ -756,7 +864,7 @@
                                                 <p class="fs-6">State:</p>
                                             </div>
                                             <div class="col-md-8">
-                                                <input class="form-control" placeholder="" type="text" id="state-input"
+                                                <input class="form-control" placeholder="" type="text" id="vcard-state"
                                                     value="">
                                             </div>
                                         </div>
@@ -767,7 +875,7 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <input class="form-control" placeholder="" type="text"
-                                                    id="country-input" value="">
+                                                    id="vcard-country" value="">
                                             </div>
                                         </div>
 
@@ -776,12 +884,13 @@
                                                 <p class="fs-6">Website:</p>
                                             </div>
                                             <div class="col-md-8">
-                                                <input class="form-control" placeholder="" type="text"
-                                                    id="website-input" value="">
+                                                <input class="form-control" placeholder="" type="text" id="vcard-web"
+                                                    value="">
                                             </div>
                                         </div>
                                     </form>
                                 </div>
+
                                 <!--Text-->
                                 <div class="tab-pane fade" id="text" role="tabpanel">
                                     <h3>Text QR code</h3>
@@ -796,6 +905,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <!--Email-->
                                 <div class="tab-pane fade" id="email" role="tabpanel">
                                     <h3>Email QR code</h3>
@@ -804,7 +914,7 @@
                                             <p class="fs-6">Email:</p>
                                         </div>
                                         <div class="col-md-8">
-                                            <input class="form-control" type="email" id="text-input"
+                                            <input class="form-control" type="email" id="email-input"
                                                 placeholder="your@gmail.com" value="">
                                         </div>
                                     </div>
@@ -813,8 +923,690 @@
                                             <p class="fs-6">Subject:</p>
                                         </div>
                                         <div class="col-md-8">
-                                            <input class="form-control" type="text" id="text-input"
+                                            <input class="form-control" type="text" id="email-subject"
                                                 placeholder="Enter mail subject" value="">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">Message:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <textarea class="form-control" id="email-textarea"
+                                                placeholder="Enter your message" rows="5"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--SMS-->
+                                <div class="tab-pane fade" id="sms" role="tabpanel">
+                                    <h3>SMS QR code</h3>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">Phone:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="tel" id="sms-phone"
+                                                placeholder="Enter phone number" value="">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">Message:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <textarea class="form-control" id="sms-textarea"
+                                                placeholder="Enter your message" rows="5"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Wi Fi-->
+                                <div class="tab-pane fade" id="wifi" role="tabpanel">
+                                    <h3>Wi-Fi QR code</h3>
+                                    <form>
+                                        <div class="row mb-3">
+                                            <div class="col-md-4">
+                                                <p class="fs-6">Network Name:</p>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <input class="form-control" type="text" id="wifi-name"
+                                                    placeholder="Enter network name" value="">
+                                            </div>
+                                            <div class="col-md-3 d-flex justify-content-center flex-column">
+                                                <div class="">
+                                                    <input class="form-check-input" type="checkbox" id="ex-check-1">
+                                                    <label class="form-check-label " for="ex-check-1">Hidden</label>
+                                                    <i class="ai-circle-help ms-2" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top"
+                                                        title="Is this a hidden WiFi network?"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-4">
+                                                <p class="fs-6">Password:</p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input class="form-control" type="password" id="wifi-password"
+                                                    placeholder="Enter password" value="password">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-4">
+                                                <p class="fs-6">Encryption:</p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" id="encrypt-none"
+                                                        name="radio_wifi">
+                                                    <label class="form-check-label" for="encrypt-none">None</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" id="encrypt-wpa"
+                                                        name="radio_wifi" checked>
+                                                    <label class="form-check-label" for="encrypt-wpa">WPA/WPA2</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" id="encrypt-wep"
+                                                        name="radio_wifi">
+                                                    <label class="form-check-label" for="encrypt-wep">WEP</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!--Bitcoin-->
+                                <div class="tab-pane fade" id="bitcoin" role="tabpanel">
+                                    <h3>Bitcoin QR code</h3>
+
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">cryptocurrency:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" id="bitcoin-bit"
+                                                    name="radio_bitcoin" checked>
+                                                <label class="form-check-label" for="bitcoin-bit">Bitcoin</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" id="bitcoin-cash"
+                                                    name="radio_bitcoin">
+                                                <label class="form-check-label" for="encrypt-wpa">Bitcoin Cash</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" id="bitcoin-ether"
+                                                    name="radio_bitcoin">
+                                                <label class="form-check-label" for="bitcoin-ether">Ether</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" id="bitcoin-litecoin"
+                                                    name="radio_bitcoin">
+                                                <label class="form-check-label" for="bitcoin-litecoin">Litecoin</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" id="bitcoin-dash"
+                                                    name="radio_bitcoin">
+                                                <label class="form-check-label" for="bitcoin-dash">Dash</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">Amount:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="text" id="bitcoin-address"
+                                                placeholder="Enter your address" value="">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">Receiver:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="text" id="bitcoin-receiver"
+                                                placeholder="Enter your address" value="">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">Message:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="text" id="bitcoin-message"
+                                                placeholder="Optional" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Twitter-->
+                                <div class="tab-pane fade" id="twitter" role="tabpanel">
+                                    <h3>Twitter QR code</h3>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">Choose an option:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" id="twitter-op1"
+                                                    name="twitter-op" checked>
+                                                <label class="form-check-label" for="twitter-op1">Link to your
+                                                    profile</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" id="twitter-op2"
+                                                    name="twitter-op">
+                                                <label class="form-check-label" for="twitter-op2">Post a tweet</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">Your username:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="text" id="twitter-username"
+                                                placeholder="@username" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Facebook-->
+                                <div class="tab-pane fade" id="facebook" role="tabpanel">
+                                    <h3>Facebook QR code</h3>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">Facebook URL:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="url" placeholder="Enter your Facebook URL"
+                                                value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--EPC-->
+                                <div class="tab-pane fade" id="epc" role="tabpanel">
+                                    <h3>EPC QR code</h3>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">Receiver's Name:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="text" id="epc-name"
+                                                placeholder="70 characters max." maxlength="70" value="">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">IBAN:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="text" id="epc-iban"
+                                                placeholder="Example: NL83RABO3195199319" value="">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">BIC/SWIFT:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="text" id="epc-bic"
+                                                placeholder="Example: BFSWDE33BER" value="">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">Amount (EUR):</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="text" id="epc-amount" placeholder="0.00"
+                                                value="">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">Payment Reference:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="text" id="epc-payment"
+                                                placeholder="Optional, 35 characters max." maxleght="35" value="">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">Remittance Information:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="text" id="epc-remittance"
+                                                placeholder="Optional, 140 characters max." maxleght="140" value="">
+                                        </div>
+                                    </div>
+                                    <!--advanced options-->
+                                    <div class="accordion accordion-alt" id="epcAdvanced">
+                                        <!-- Item -->
+                                        <div class="accordion-item">
+                                            <p class="accordion-header" id="epcDrop">
+                                                <button class="accordion-button collapsed fs-6" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#epcCollapsed"
+                                                    aria-expanded="false" aria-controls="epcCollapsed">ADVANCED
+                                                    OPTIONS</button>
+                                            </p>
+                                            <div class="accordion-collapse collapse" id="epcCollapsed"
+                                                aria-labelledby="epcDrop" data-bs-parent="#epcAdvanced">
+                                                <div class="row my-3">
+                                                    <div class="col-md-4">
+                                                        <p class="fs-6">Service Tag:</p>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input class="form-control" type="text" id="epc-service"
+                                                            placeholder="" value="BCD">
+                                                    </div>
+                                                </div>
+                                                <div class="row my-3">
+                                                    <div class="col-md-4">
+                                                        <p class="fs-6">Version:</p>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" id="epc-001"
+                                                                name="epc_ver">
+                                                            <label class="form-check-label" for="epc-001">None</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" id="epc-002"
+                                                                name="epc_ver" checked>
+                                                            <label class="form-check-label"
+                                                                for="epc-002">WPA/WPA2</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row my-3">
+                                                    <div class="col-md-4">
+                                                        <label class="fs-6" for="epc-select">Character Encoding:</label>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <select class="form-select" id="epc-select">
+                                                            <option>UTF-8</option>
+                                                            <option>ISO 8859-1</option>
+                                                            <option>ISO 8859-2</option>
+                                                            <option>ISO 8859-4</option>
+                                                            <option>ISO 8859-5</option>
+                                                            <option>ISO 8859-7</option>
+                                                            <option>ISO 8859-10</option>
+                                                            <option>ISO 8859-15</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="row my-3">
+                                                    <div class="col-md-4">
+                                                        <p class="fs-6">SEPA Credit Transfer:</p>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input class="form-control" type="text" id="epc-sepa"
+                                                            placeholder="" value="SCT">
+                                                    </div>
+                                                </div>
+                                                <div class="row my-3">
+                                                    <div class="col-md-4">
+                                                        <p class="fs-6">Purpose</p>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input class="form-control" type="text" id="epc-purpose"
+                                                            placeholder="Four-digit letter code (E.g: CHAR)" value="">
+                                                    </div>
+                                                </div>
+                                                <div class="row my-3">
+                                                    <div class="col-md-4">
+                                                        <p class="fs-6">Note</p>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input class="form-control" type="text" id="epc-note"
+                                                            placeholder="" value="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--PDF-->
+                                <div class="tab-pane fade" id="pdf" role="tabpanel">
+                                    <h3>PDF QR code</h3>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">PDF URL:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="url" placeholder="Enter your PDF URL"
+                                                value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--MP3-->
+                                <div class="tab-pane fade" id="mp3" role="tabpanel">
+                                    <h3>MP3 QR code</h3>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">MP3 URL:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="url" placeholder="Enter your MP3 URL"
+                                                value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Image-->
+                                <div class="tab-pane fade" id="img" role="tabpanel">
+                                    <h3>Image QR code</h3>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">Image URL:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="url" placeholder="Enter your Image URL"
+                                                value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Video-->
+                                <div class="tab-pane fade" id="video" role="tabpanel">
+                                    <h3>Video QR code</h3>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">Video URL:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="url" placeholder="Enter your Video URL"
+                                                value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--App stores-->
+                                <div class="tab-pane fade" id="" role="tabpanel">
+                                    <h3>App stores QR code</h3>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">App URL:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="url"
+                                                placeholder="Enter your URL from App Store or Play Store" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Dynamic Url-->
+                                <div class="tab-pane fade" id="dynamic-url" role="tabpanel">
+                                    <h3>Dynamic URL QR code</h3>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">Dynamic URL:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="url" placeholder="Enter your Dynamic URL"
+                                                value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--social media-->
+                                <div class="tab-pane fade" id="social-media" role="tabpanel">
+                                    <h3>Social Media QR code</h3>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">Social Media URL:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="url"
+                                                placeholder="Enter your social media profile URL" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--coupon-->
+                                <div class="tab-pane fade" id="coupon" role="tabpanel">
+                                    <h3>Coupon QR code</h3>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">Coupon URL:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="url"
+                                                placeholder="Enter your coupon details" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Vcard plus-->
+                                <div class="tab-pane fade" id="v-card-plus" role="tabpanel">
+                                    <h3 class="">vCard QR code</h3>
+                                    <!-- V Card Input -->
+                                    <form class="needs-validation" novalidate>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <p class="fs-6">Your name:</p>
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <input class="form-control" type="text" id="vcard-plus-firstname"
+                                                    placeholder="First name" value="" required>
+                                                <div class="valid-feedback">Looks good!</div>
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <input class="form-control" type="text" id="vcard-plus-lastname"
+                                                    placeholder="Last name" value="" required>
+                                                <div class="valid-feedback">Looks good!</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-4">
+                                                <p class="fs-6">Contact:</p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input class="form-control" placeholder="mobile" id="vcard-plus-mobile"
+                                                    type="tel" value="">
+
+                                                <div class="row mt-3">
+                                                    <div class="col-md-6">
+                                                        <input class="form-control" placeholder="phone"
+                                                            id="vcard-plus-phone" type="tel" value="">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input class="form-control" placeholder="tax"
+                                                            id="vcard-plus-tax" type="number-input" value="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-4">
+                                                <p class="fs-6">Email:</p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input class="form-control" placeholder="your@gmail.com"
+                                                    id="vcard-plus-email" type="email" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-4">
+                                                <p class="fs-6">Company:</p>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input class="form-control" placeholder="Company"
+                                                    id="vcard-plus-company" type="text" value="">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input class="form-control" placeholder="Your Job" id="vcard-plus-job"
+                                                    type="text" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-4">
+                                                <p class="fs-6">Street:</p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input class="form-control" placeholder="" id="vcard-plus-street"
+                                                    type="text" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-4">
+                                                <p class="fs-6">City:</p>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <input class="form-control" placeholder="" id="vcard-plus-city"
+                                                    type="text" value="">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input class="form-control" placeholder="ZIP" id="vcard-plus-zip"
+                                                    type="text" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-4">
+                                                <p class="fs-6">State:</p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input class="form-control" placeholder="" id="vcard-plus-state"
+                                                    type="text" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-4">
+                                                <p class="fs-6">Country:</p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input class="form-control" placeholder="" id="vcard-plus-country"
+                                                    type="text" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-4">
+                                                <p class="fs-6">Website:</p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input class="form-control" placeholder="www.your-website.com"
+                                                    id="vcard-plus-web" type="text" value="">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!--Business-->
+                                <div class="tab-pane fade" id="business" role="tabpanel">
+                                    <h3 class="">Business QR code</h3>
+                                    <!-- V Card Input -->
+                                    <form class="needs-validation" novalidate>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <p class="fs-6">Company Name:</p>
+                                            </div>
+                                            <div class="col-md-8 mb-3">
+                                                <input class="form-control" type="text" id="business-company-name"
+                                                    placeholder="Company Name" value="" required>
+                                                <div class="valid-feedback">Looks good!</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-4">
+                                                <p class="fs-6">Contact:</p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input class="form-control" placeholder="Mobile" type="tel"
+                                                    id="business-mobile" value="">
+
+                                                <div class="row mt-3">
+                                                    <div class="col-md-6">
+                                                        <input class="form-control" placeholder="Phone"
+                                                            id="business-phone" type="tel" value="">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input class="form-control" placeholder="Tax" id="business-tax"
+                                                            type="number-input" value="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-4">
+                                                <p class="fs-6">Email:</p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input class="form-control" placeholder="your@gmail.com"
+                                                    id="business-email" type="email" value="">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-4">
+                                                <p class="fs-6">Street:</p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input class="form-control" placeholder="" id="business-street"
+                                                    type="text" value="">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-4">
+                                                <p class="fs-6">City:</p>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <input class="form-control" placeholder="" id="business-city"
+                                                    type="text">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input class="form-control" placeholder="ZIP" id="business-zip"
+                                                    type="text" value="">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-4">
+                                                <p class="fs-6">State:</p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input class="form-control" placeholder="" id="business-state"
+                                                    type="text" value="">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-4">
+                                                <p class="fs-6">Country:</p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input class="form-control" placeholder="" id="business-country"
+                                                    type="text" value="">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-4">
+                                                <p class="fs-6">Website:</p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input class="form-control" placeholder="www.your-website.com"
+                                                    id="business-website" type="text" value="">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!--Feed back-->
+                                <div class="tab-pane fade" id="feedback" role="tabpanel">
+                                    <h3 class="">Feedback QR code</h3>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">Subject:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="text"
+                                                placeholder="e.g. How was your rental experience?" value="">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">Email:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="email" placeholder="your@email.com"
+                                                value="">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
@@ -827,13 +1619,72 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--V Card-->
-                                <div class="tab-pane fade" id="" role="tabpanel"></div>
-                                <!--V Card-->
-                                <div class="tab-pane fade" id="" role="tabpanel"></div>
-                                <!--V Card-->
-                                <div class="tab-pane fade" id="" role="tabpanel"></div>
+                                <!--Rating-->
+                                <div class="tab-pane fade" id="rating" role="tabpanel">
+                                    <h3 class="">Rating QR code</h3>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">Subject:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="text"
+                                                placeholder="e.g. How was your rental experience?" value="">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">Email:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="email" placeholder="your@email.com"
+                                                value="">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">Message:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <textarea class="form-control" id="textarea-input"
+                                                placeholder="e.g Rate us from the scale of 1 (Very Bad) to 5 (Very Good)"
+                                                rows="5"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
 
+                                <!--Event-->
+                                <div class="tab-pane fade" id="event" role="tabpanel">
+                                    <h3>Event QR Code</h3>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">Title:</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="text" placeholder="Event Name" value="">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-4">
+                                            <p class="fs-6">When</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="input-group">
+                                                <span class="input-group-text">
+                                                    <i class="ai-calendar"></i>
+                                                </span>
+                                                <input class="form-control date-picker date-range" type="text"
+                                                    placeholder="From date"
+                                                    data-datepicker-options='{"altInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d"}'
+                                                    data-linked-input="#end-date">
+                                                <span class="border-end border-input"></span>
+                                                <input class="form-control date-picker" type="text"
+                                                    placeholder="To date"
+                                                    data-datepicker-options='{"altInput": true, "altFormat": "F j, Y", "dateFormat": "Y-m-d"}'
+                                                    id="end-date">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="form-check form-switch mt-5">
@@ -873,7 +1724,7 @@
                                     <ul class="nav nav-pills">
                                         <li class="nav-item">
                                             <a href="#fame" class="nav-link rounded fs-sm">
-                                               <img src="assets/img/qr-form/Frame/1.png" alt="" class="">
+                                                <img src="assets/img/qr-form/Frame/1.png" alt="" class="">
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -893,7 +1744,7 @@
                                         </li>
                                         <li class="nav-item">
                                             <a href="#fame" class="nav-link rounded fs-sm">
-                                               <img src="assets/img/qr-form/Frame/5.png" alt="" class="">
+                                                <img src="assets/img/qr-form/Frame/5.png" alt="" class="">
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -919,7 +1770,7 @@
                                     </ul>
                                 </div>
                                 <div class="tab-pane fade" id="shape" role="tabpanel">
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -930,7 +1781,9 @@
 
                             <div class="row mt-3">
                                 <div class="col-md-6">
-                                    <div class="btn btn-primary w-100">download</div>
+                                    <div class="btn btn-primary w-100">
+                                        Download
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="btn btn-outline-primary w-100">Print Quality</div>
@@ -1171,7 +2024,7 @@
                         <h2 class="h1 mb-sm-0 mx-auto me-sm-4" style="max-width: 440px;">What type of QR codes can I
                             create for free
                         </h2>
-                        <p class="pt-2 mb-0 mx-auto" style="max-width: 420px;">We offer these Static QR Codes that are
+                        <p class="pt-2 mb-0 mx-auto" style="max-width: 420px;">We offer QR Codes that are
                             completely for free and will never expire. Once generated, it’s yours forever but you will
                             not be able to edit the content or track its scans.</p>
                     </div>
@@ -1853,6 +2706,9 @@
         <i class="ai-arrow-up"></i>
     </a>
 
+    <!-- Vendor -->
+    <script src="../assets/vendor/flatpickr/dist/flatpickr.min.js"></script>
+    <script src="../assets/vendor/flatpickr/dist/plugins/rangePlugin.js"></script>
     <!--swiper-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!--AOS-->
@@ -1862,6 +2718,28 @@
     </script>
     <!-- Bootstrap + Theme scripts -->
     <script src="assets/js/theme.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropdownForm = document.getElementsByClassName('dropdown_form');
+            for (let i = 0; i < dropdownForm.length; i++) {
+                const dropdownFormItem = dropdownForm[i].querySelectorAll('.dropdown_form-item');
+
+                for (let j = 0; j < dropdownFormItem.length; j++) {
+                    dropdownFormItem[j].addEventListener('click', function () {
+                        for (let k = 0; k < dropdownFormItem.length; k++) {
+                            dropdownFormItem[k].classList.remove('active');
+                        }
+
+                        dropdownForm[i].querySelector('.dropdown_form-btn').innerHTML = dropdownFormItem[j].textContent;
+                        dropdownFormItem[j].classList.add('active');
+                    });
+                }
+            }
+
+        });
+        
+    </script>
 </body>
 
 </html>
