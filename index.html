@@ -593,7 +593,7 @@
         </section>
 
         <!--QR form-->
-        <section class="bg-light pb-5">
+        <section class="bg-light pb-5 d-none d-lg-block">
             <div class="container pt-sm-2 pt-md-3 pt-lg-4">
                 <div class="card border-0 rounded-2" style="padding: 8px; background-color: #EAEAEC;">
 
@@ -979,7 +979,7 @@
                     </div>
 
                     <!--form-->
-                    <div class="card card-body rounded-1 h-100" style="padding: 12px">
+                    <div class="card card-body rounded-1 h-100" style="padding: 12px; position:relative;">
                         <div class="row">
                             <div class="col-md-8">
                                 <div class="card border-0" style="height: 100%;">
@@ -1927,7 +1927,7 @@
                                                                 <div class="d-flex flex-column-reverse">
                                                                     <button
                                                                         class="d-flex align-items-center px-3 py-2 bg-white border rounded-2">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                        <svg class="me-1" xmlns="http://www.w3.org/2000/svg"
                                                                             width="16" height="16" viewBox="0 0 24 24"
                                                                             fill="none" stroke="currentColor"
                                                                             stroke-width="2" stroke-linecap="round"
@@ -2219,7 +2219,7 @@
                                                                 <div class="d-flex flex-column-reverse">
                                                                     <button
                                                                         class="d-flex align-items-center px-3 py-2 bg-white border rounded-2">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                        <svg class="me-1" xmlns="http://www.w3.org/2000/svg"
                                                                             width="16" height="16" viewBox="0 0 24 24"
                                                                             fill="none" stroke="currentColor"
                                                                             stroke-width="2" stroke-linecap="round"
@@ -2240,26 +2240,28 @@
                                 </div>
                             </div>
                             <!--download-->
-                            <div class="col-md-4 d-block h-100 position-relative">
-                                <div class="card rounded-2 border-0 h-100 py-5 position-sticky top-0 z-3"
+                            <div class="col-md-4">
+                                <div class="card rounded-2 border-0 py-5 position-relative h-100"
                                     style="background-color: #f7f7f7; min-height: 386px;">
-                                    <div class="d-flex flex-column align-items-center">
-                                        <h3 class="mb-5">Download your QR</h3>
-
-                                        <img src="assets/img/qr-form/QR.jpg" alt=""
-                                            class="img-thumbnail w-50 border-0 p-0 rounded-1 shadow-lg mb-4">
-
-                                        <div class="row mt-3">
-                                            <div class="col-md-6">
-                                                <div class="btn btn-primary w-100">
-                                                    Download
-                                                    <i class="ai-download ms-2"></i>
+                                    <div class="" style="position: sticky; top: 100px; z-index: 3;">
+                                        <div class="d-flex flex-column align-items-center">
+                                            <h3 class="mb-5">Download your QR</h3>
+    
+                                            <img src="assets/img/qr-form/QR.jpg" alt=""
+                                                class="img-thumbnail w-50 border-0 p-0 rounded-1 shadow-lg mb-4">
+    
+                                            <div class="row mt-3">
+                                                <div class="col-md-6">
+                                                    <div class="btn btn-primary w-100">
+                                                        Download
+                                                        <i class="ai-download ms-2"></i>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="btn btn-outline-primary w-100">
-                                                    Print Quality
-                                                    <i class="ai-download ms-2"></i>
+                                                <div class="col-md-6">
+                                                    <div class="btn btn-outline-primary w-100">
+                                                        Print Quality
+                                                        <i class="ai-download ms-2"></i>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2272,8 +2274,23 @@
             </div>
         </section>
 
+        <!--QR form mobile-->
+        <section class="d-lg-none">
+            <div class="card border-0 rounded-2" style="padding: 8px; background-color: #eaeaec">
+                <div class="card border-0 rounded-2">
+                    <div class="">
+                        <div class="card rounded-2 d-flex flex-column align-items-center" style="background-color: #f3f3f3">
+                            <h3 class="mb-5">Download your QR</h3>
+        
+                            <img src="assets/img/qr-form/QR.jpg" alt=""
+                                class="img-thumbnail w-50 border-0 p-0 rounded-1 shadow-lg mb-4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!--CTA-->
-        <section class="bg-secondary">
+        <section class="">
             <div class="container">
                 <div class="position-relative overflow-hidden rounded-5 px-4 px-sm-5 px-lg-0">
                     <div class="bg-primary rounded-5 position-absolute top-0 start-0 w-100 h-100" data-aos="zoom-in"
@@ -2509,22 +2526,22 @@
             </div>
             <div class="container-start pe-0">
                 <div class="swiper" data-swiper-options='{
-            "slidesPerView": "auto",
-            "spaceBetween": 24,
-            "loop": true,
-            "navigation": {
-              "prevEl": "#prev-feature",
-              "nextEl": "#next-feature"
-            }
-          }'>
+                    "slidesPerView": "auto",
+                    "spaceBetween": 24,
+                    "loop": true,
+                    "navigation": {
+                    "prevEl": "#prev-feature",
+                    "nextEl": "#next-feature"
+                    }
+                }'>
                     <div class="swiper-wrapper">
 
                         <!-- Item -->
                         <div class="swiper-slide w-auto h-auto">
                             <div class="card border-0 bg-secondary card-hover h-100 py-4" style="max-width: 306px;">
-                                <a href=""
+                                <a href="#"
                                     class="opacity-0 position-absolute top-0 start-0 w-100 h-100 bg-size-cover bg-position-center rounded-5"
-                                    style="background-image: url(assets/img/home/hero1.png);">
+                                    style="background-image: url(assets/img/home/features/url.png);">
                                 </a>
                                 <div class="card-body text-center">
                                     <svg class="h1 fw-normal text-primary d-block mb-4 w-100" width="40" height="40"
@@ -2551,9 +2568,9 @@
                         <!-- Item -->
                         <div class="swiper-slide w-auto h-auto">
                             <div class="card border-0 bg-secondary card-hover h-100 py-4" style="max-width: 306px;">
-                                <a href=""
+                                <a href="#"
                                     class="opacity-0 position-absolute top-0 start-0 w-100 h-100 bg-size-cover bg-position-center rounded-5"
-                                    style="background-image: url(assets/img/landing/yoga-studio/features/changing-room.jpg);">
+                                    style="background-image: url(assets/img/home/features/text.png);">
                                 </a>
                                 <div class="card-body text-center">
                                     <svg class="h1 fw-normal text-primary d-block mb-4 w-100" width="40" height="40"
@@ -2574,7 +2591,7 @@
                             <div class="card border-0 bg-secondary card-hover h-100 py-4" style="max-width: 306px;">
                                 <a href="#"
                                     class="opacity-0 position-absolute top-0 start-0 w-100 h-100 bg-size-cover bg-position-center rounded-5"
-                                    style="background-image: url(assets/img/landing/yoga-studio/features/lounge-cafe.jpg);">
+                                    style="background-image: url(assets/img/home/features/email.png);">
                                 </a>
                                 <div class="card-body text-center">
                                     <svg class="h1 fw-normal text-primary d-block mb-4 w-100" width="40" height="40"
@@ -2593,9 +2610,9 @@
                         <!-- Item -->
                         <div class="swiper-slide w-auto h-auto">
                             <div class="card border-0 bg-secondary card-hover h-100 py-4" style="max-width: 306px;">
-                                <div class="opacity-0 position-absolute top-0 start-0 w-100 h-100 bg-size-cover bg-position-center rounded-5"
-                                    style="background-image: url(assets/img/landing/yoga-studio/features/bright-halls.jpg);">
-                                </div>
+                                <a href="#" class="opacity-0 position-absolute top-0 start-0 w-100 h-100 bg-size-cover bg-position-center rounded-5"
+                                    style="background-image: url(assets/img/home/features/phone.jpg);">
+                                </a>
                                 <div class="card-body text-center">
                                     <svg class="h1 fw-normal text-primary d-block mb-4 w-100" width="40" height="40"
                                         viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2614,9 +2631,9 @@
                         <!-- Item -->
                         <div class="swiper-slide w-auto h-auto">
                             <div class="card border-0 bg-secondary card-hover h-100 py-4" style="max-width: 306px;">
-                                <div class="opacity-0 position-absolute top-0 start-0 w-100 h-100 bg-size-cover bg-position-center rounded-5"
-                                    style="background-image: url(assets/img/landing/yoga-studio/features/free-rugs.jpg);">
-                                </div>
+                                <a href="#" class="opacity-0 position-absolute top-0 start-0 w-100 h-100 bg-size-cover bg-position-center rounded-5"
+                                    style="background-image: url(assets/img/home/features/vcard.png);">
+                                </a>
                                 <div class="card-body text-center">
                                     <svg class="h1 fw-normal text-primary d-block mb-4 w-100" width="40" height="40"
                                         viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2634,9 +2651,9 @@
                         <!-- Item -->
                         <div class="swiper-slide w-auto h-auto">
                             <div class="card border-0 bg-secondary card-hover h-100 py-4" style="max-width: 306px;">
-                                <div class="opacity-0 position-absolute top-0 start-0 w-100 h-100 bg-size-cover bg-position-center rounded-5"
-                                    style="background-image: url(assets/img/landing/yoga-studio/features/free-rugs.jpg);">
-                                </div>
+                                <a href="#" class="opacity-0 position-absolute top-0 start-0 w-100 h-100 bg-size-cover bg-position-center rounded-5"
+                                    style="background-image: url(assets/img/home/features/event.png);">
+                                </a>
                                 <div class="card-body text-center">
                                     <svg class="h1 fw-normal text-primary d-block mb-4 w-100" width="40" height="40"
                                         viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2654,9 +2671,9 @@
                         <!-- Item -->
                         <div class="swiper-slide w-auto h-auto">
                             <div class="card border-0 bg-secondary card-hover h-100 py-4" style="max-width: 306px;">
-                                <div class="opacity-0 position-absolute top-0 start-0 w-100 h-100 bg-size-cover bg-position-center rounded-5"
-                                    style="background-image: url(assets/img/landing/yoga-studio/features/free-rugs.jpg);">
-                                </div>
+                                <a href="#" class="opacity-0 position-absolute top-0 start-0 w-100 h-100 bg-size-cover bg-position-center rounded-5"
+                                    style="background-image: url(assets/img/home/features/wifi.png);">
+                                </a>
                                 <div class="card-body text-center">
                                     <svg class="h1 fw-normal text-primary d-block mb-4 w-100" width="40" height="40"
                                         viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2674,9 +2691,9 @@
                         <!-- Item -->
                         <div class="swiper-slide w-auto h-auto">
                             <div class="card border-0 bg-secondary card-hover h-100 py-4" style="max-width: 306px;">
-                                <div class="opacity-0 position-absolute top-0 start-0 w-100 h-100 bg-size-cover bg-position-center rounded-5"
-                                    style="background-image: url(assets/img/landing/yoga-studio/features/free-rugs.jpg);">
-                                </div>
+                                <a href="#" class="opacity-0 position-absolute top-0 start-0 w-100 h-100 bg-size-cover bg-position-center rounded-5"
+                                    style="background-image: url(assets/img/home/features/pdf.png);">
+                                </a>
                                 <div class="card-body text-center">
                                     <svg class="h1 fw-normal text-primary d-block mb-4 w-100" width="40" height="40"
                                         viewBox="0 0 24 24" fill="current" xmlns="http://www.w3.org/2000/svg">
@@ -2697,9 +2714,9 @@
                         <!-- Item -->
                         <div class="swiper-slide w-auto h-auto">
                             <div class="card border-0 bg-secondary card-hover h-100 py-4" style="max-width: 306px;">
-                                <div class="opacity-0 position-absolute top-0 start-0 w-100 h-100 bg-size-cover bg-position-center rounded-5"
-                                    style="background-image: url(assets/img/landing/yoga-studio/features/free-rugs.jpg);">
-                                </div>
+                                <a href="#" class="opacity-0 position-absolute top-0 start-0 w-100 h-100 bg-size-cover bg-position-center rounded-5"
+                                    style="background-image: url(assets/img/home/features/bitcoin.png);">
+                                </a>
                                 <div class="card-body text-center">
                                     <svg class="h1 fw-normal text-primary d-block mb-4 w-100" width="40" height="40"
                                         viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
